@@ -1,0 +1,8 @@
+pl.net.yuri.magister.client.enums
+pl.net.yuri.magister.client.gui
+pl.net.yuri.magister.client.gui.forms
+pl.net.yuri.magister.client.gui.log
+pl.net.yuri.magister.client.gui.task
+pl.net.yuri.magister.soap
+pl.net.yuri.magister.soap.holders
+pl.net.yuri.magister.soap.util

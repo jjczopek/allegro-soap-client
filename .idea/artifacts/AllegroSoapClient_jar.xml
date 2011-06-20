@@ -1,0 +1,26 @@
+<component name="ArtifactManager">
+  <artifact name="AllegroSoapClient:jar">
+    <output-path>$PROJECT_DIR$/bin</output-path>
+    <root id="root">
+      <element id="archive" name="AllegroSoapClient.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+        </element>
+        <element id="module-output" name="AllegroSoapClient" />
+      </element>
+      <element id="directory" name="lib">
+        <element id="file-copy" path="$PROJECT_DIR$/lib/axis.jar" />
+        <element id="file-copy" path="$PROJECT_DIR$/../../commons-cli-1.2/commons-cli-1.2.jar" />
+        <element id="file-copy" path="$PROJECT_DIR$/lib/commons-discovery-0.2.jar" />
+        <element id="file-copy" path="$PROJECT_DIR$/lib/commons-logging-1.0.4.jar" />
+        <element id="file-copy" path="$PROJECT_DIR$/lib/jaxrpc.jar" />
+        <element id="file-copy" path="$PROJECT_DIR$/../../jgoodies-common-1.2.0/jgoodies-common-1.2.0.jar" />
+        <element id="file-copy" path="$PROJECT_DIR$/../../jgoodies-forms-1.4.1/jgoodies-forms-1.4.1.jar" />
+        <element id="file-copy" path="$PROJECT_DIR$/lib/log4j-1.2.8.jar" />
+        <element id="file-copy" path="$PROJECT_DIR$/lib/saaj.jar" />
+        <element id="file-copy" path="$PROJECT_DIR$/lib/wsdl4j-1.5.1.jar" />
+      </element>
+      <element id="file-copy" path="$PROJECT_DIR$/run.bat" />
+    </root>
+  </artifact>
+</component>
