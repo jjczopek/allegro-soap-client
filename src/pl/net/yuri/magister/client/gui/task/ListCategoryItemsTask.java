@@ -35,7 +35,7 @@ public class ListCategoryItemsTask extends SwingWorker<List<SearchResponseType>,
 
         ArrayOfSearchResponseHolder items = new ArrayOfSearchResponseHolder();
 
-        port.doShowCat(Util.getSessionHolder().value, categoryId, 0, 0, null, null, 1, null, 0,
+        port.doShowCat(Util.getSessionHolder().value, categoryId, -1, -1, null, null, 1, null, 0,
                 50, 0, new ArrayOfCatInfoStructHolder(), new ArrayOfCatInfoStructHolder(), new ArrayOfCatInfoStructHolder(),
                 new IntHolder(), new IntHolder(), items);
 

@@ -115,7 +115,7 @@ public class MainForm {
                                 itm.setDataList(items);
 
                             } catch (Exception e) {
-                                LOG.error(e.getMessage());
+                                LOG.error("Nie udało się pobrać przedmiotów.", e);
                             } finally {
                                 getItemsButton.setEnabled(true);
                             }
