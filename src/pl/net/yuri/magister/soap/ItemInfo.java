@@ -72,6 +72,10 @@ public class ItemInfo implements java.io.Serializable {
 
     private int itOrderFulfillmentTime;
 
+    private int itEndingInfo;
+
+    private int itIsAllegroStandard;
+
     public ItemInfo() {
     }
 
@@ -107,7 +111,9 @@ public class ItemInfo implements java.io.Serializable {
             int itStartingQuantity,
             int itIsForGuests,
             int itHasProduct,
-            int itOrderFulfillmentTime) {
+            int itOrderFulfillmentTime,
+            int itEndingInfo,
+            int itIsAllegroStandard) {
         this.itId = itId;
         this.itCountry = itCountry;
         this.itName = itName;
@@ -140,6 +146,8 @@ public class ItemInfo implements java.io.Serializable {
         this.itIsForGuests = itIsForGuests;
         this.itHasProduct = itHasProduct;
         this.itOrderFulfillmentTime = itOrderFulfillmentTime;
+        this.itEndingInfo = itEndingInfo;
+        this.itIsAllegroStandard = itIsAllegroStandard;
     }
 
 
@@ -782,6 +790,46 @@ public class ItemInfo implements java.io.Serializable {
         this.itOrderFulfillmentTime = itOrderFulfillmentTime;
     }
 
+
+    /**
+     * Gets the itEndingInfo value for this ItemInfo.
+     *
+     * @return itEndingInfo
+     */
+    public int getItEndingInfo() {
+        return itEndingInfo;
+    }
+
+
+    /**
+     * Sets the itEndingInfo value for this ItemInfo.
+     *
+     * @param itEndingInfo
+     */
+    public void setItEndingInfo(int itEndingInfo) {
+        this.itEndingInfo = itEndingInfo;
+    }
+
+
+    /**
+     * Gets the itIsAllegroStandard value for this ItemInfo.
+     *
+     * @return itIsAllegroStandard
+     */
+    public int getItIsAllegroStandard() {
+        return itIsAllegroStandard;
+    }
+
+
+    /**
+     * Sets the itIsAllegroStandard value for this ItemInfo.
+     *
+     * @param itIsAllegroStandard
+     */
+    public void setItIsAllegroStandard(int itIsAllegroStandard) {
+        this.itIsAllegroStandard = itIsAllegroStandard;
+    }
+
     private java.lang.Object __equalsCalc = null;
 
     public synchronized boolean equals(java.lang.Object obj) {
@@ -842,7 +890,9 @@ public class ItemInfo implements java.io.Serializable {
                 this.itStartingQuantity == other.getItStartingQuantity() &&
                 this.itIsForGuests == other.getItIsForGuests() &&
                 this.itHasProduct == other.getItHasProduct() &&
-                this.itOrderFulfillmentTime == other.getItOrderFulfillmentTime();
+                this.itOrderFulfillmentTime == other.getItOrderFulfillmentTime() &&
+                this.itEndingInfo == other.getItEndingInfo() &&
+                this.itIsAllegroStandard == other.getItIsAllegroStandard();
         __equalsCalc = null;
         return _equals;
     }
@@ -903,6 +953,8 @@ public class ItemInfo implements java.io.Serializable {
         _hashCode += getItIsForGuests();
         _hashCode += getItHasProduct();
         _hashCode += getItOrderFulfillmentTime();
+        _hashCode += getItEndingInfo();
+        _hashCode += getItIsAllegroStandard();
         __hashCodeCalc = false;
         return _hashCode;
     }
@@ -1102,6 +1154,18 @@ public class ItemInfo implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itOrderFulfillmentTime");
         elemField.setXmlName(new javax.xml.namespace.QName("", "it-order-fulfillment-time"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("itEndingInfo");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "it-ending-info"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("itIsAllegroStandard");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "it-is-allegro-standard"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

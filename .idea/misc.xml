@@ -25,6 +25,7 @@
   <component name="GradleUISettings">
     <setting name="root" />
   </component>
+  <component name="IdProvider" IDEtalkID="6E977495843F77B3C3E9E0BFF6451362" />
   <component name="JavadocGenerationManager">
     <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/doc" />
     <option name="OPTION_SCOPE" value="protected" />

@@ -50,6 +50,8 @@ public class SearchResponseType implements java.io.Serializable {
 
     private int sItIsTablicaAdvert;
 
+    private int sItIsAllegroStandard;
+
     public SearchResponseType() {
     }
 
@@ -74,7 +76,8 @@ public class SearchResponseType implements java.io.Serializable {
             int sItThumb,
             float sItPostage,
             int sItIsForGuests,
-            int sItIsTablicaAdvert) {
+            int sItIsTablicaAdvert,
+            int sItIsAllegroStandard) {
         this.sItId = sItId;
         this.sItName = sItName;
         this.sItPrice = sItPrice;
@@ -96,6 +99,7 @@ public class SearchResponseType implements java.io.Serializable {
         this.sItPostage = sItPostage;
         this.sItIsForGuests = sItIsForGuests;
         this.sItIsTablicaAdvert = sItIsTablicaAdvert;
+        this.sItIsAllegroStandard = sItIsAllegroStandard;
     }
 
 
@@ -518,6 +522,26 @@ public class SearchResponseType implements java.io.Serializable {
         this.sItIsTablicaAdvert = sItIsTablicaAdvert;
     }
 
+
+    /**
+     * Gets the sItIsAllegroStandard value for this SearchResponseType.
+     *
+     * @return sItIsAllegroStandard
+     */
+    public int getSItIsAllegroStandard() {
+        return sItIsAllegroStandard;
+    }
+
+
+    /**
+     * Sets the sItIsAllegroStandard value for this SearchResponseType.
+     *
+     * @param sItIsAllegroStandard
+     */
+    public void setSItIsAllegroStandard(int sItIsAllegroStandard) {
+        this.sItIsAllegroStandard = sItIsAllegroStandard;
+    }
+
     private java.lang.Object __equalsCalc = null;
 
     public synchronized boolean equals(java.lang.Object obj) {
@@ -557,7 +581,8 @@ public class SearchResponseType implements java.io.Serializable {
                 this.sItThumb == other.getSItThumb() &&
                 this.sItPostage == other.getSItPostage() &&
                 this.sItIsForGuests == other.getSItIsForGuests() &&
-                this.sItIsTablicaAdvert == other.getSItIsTablicaAdvert();
+                this.sItIsTablicaAdvert == other.getSItIsTablicaAdvert() &&
+                this.sItIsAllegroStandard == other.getSItIsAllegroStandard();
         __equalsCalc = null;
         return _equals;
     }
@@ -597,6 +622,7 @@ public class SearchResponseType implements java.io.Serializable {
         _hashCode += new Float(getSItPostage()).hashCode();
         _hashCode += getSItIsForGuests();
         _hashCode += getSItIsTablicaAdvert();
+        _hashCode += getSItIsAllegroStandard();
         __hashCodeCalc = false;
         return _hashCode;
     }
@@ -730,6 +756,12 @@ public class SearchResponseType implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("SItIsTablicaAdvert");
         elemField.setXmlName(new javax.xml.namespace.QName("", "s-it-is-tablica-advert"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("SItIsAllegroStandard");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "s-it-is-allegro-standard"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

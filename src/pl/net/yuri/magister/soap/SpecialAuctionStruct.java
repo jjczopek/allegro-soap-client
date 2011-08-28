@@ -40,6 +40,8 @@ public class SpecialAuctionStruct implements java.io.Serializable {
 
     private long itStartingTime;
 
+    private int itIsAllegroStandard;
+
     public SpecialAuctionStruct() {
     }
 
@@ -59,7 +61,8 @@ public class SpecialAuctionStruct implements java.io.Serializable {
             long itSellerId,
             float itSendCostPrice,
             int itIsBoldTitle,
-            long itStartingTime) {
+            long itStartingTime,
+            int itIsAllegroStandard) {
         this.itId = itId;
         this.itName = itName;
         this.itPrice = itPrice;
@@ -76,6 +79,7 @@ public class SpecialAuctionStruct implements java.io.Serializable {
         this.itSendCostPrice = itSendCostPrice;
         this.itIsBoldTitle = itIsBoldTitle;
         this.itStartingTime = itStartingTime;
+        this.itIsAllegroStandard = itIsAllegroStandard;
     }
 
 
@@ -398,6 +402,26 @@ public class SpecialAuctionStruct implements java.io.Serializable {
         this.itStartingTime = itStartingTime;
     }
 
+
+    /**
+     * Gets the itIsAllegroStandard value for this SpecialAuctionStruct.
+     *
+     * @return itIsAllegroStandard
+     */
+    public int getItIsAllegroStandard() {
+        return itIsAllegroStandard;
+    }
+
+
+    /**
+     * Sets the itIsAllegroStandard value for this SpecialAuctionStruct.
+     *
+     * @param itIsAllegroStandard
+     */
+    public void setItIsAllegroStandard(int itIsAllegroStandard) {
+        this.itIsAllegroStandard = itIsAllegroStandard;
+    }
+
     private java.lang.Object __equalsCalc = null;
 
     public synchronized boolean equals(java.lang.Object obj) {
@@ -428,7 +452,8 @@ public class SpecialAuctionStruct implements java.io.Serializable {
                 this.itSellerId == other.getItSellerId() &&
                 this.itSendCostPrice == other.getItSendCostPrice() &&
                 this.itIsBoldTitle == other.getItIsBoldTitle() &&
-                this.itStartingTime == other.getItStartingTime();
+                this.itStartingTime == other.getItStartingTime() &&
+                this.itIsAllegroStandard == other.getItIsAllegroStandard();
         __equalsCalc = null;
         return _equals;
     }
@@ -459,6 +484,7 @@ public class SpecialAuctionStruct implements java.io.Serializable {
         _hashCode += new Float(getItSendCostPrice()).hashCode();
         _hashCode += getItIsBoldTitle();
         _hashCode += new Long(getItStartingTime()).hashCode();
+        _hashCode += getItIsAllegroStandard();
         __hashCodeCalc = false;
         return _hashCode;
     }
@@ -563,6 +589,12 @@ public class SpecialAuctionStruct implements java.io.Serializable {
         elemField.setFieldName("itStartingTime");
         elemField.setXmlName(new javax.xml.namespace.QName("", "it-starting-time"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("itIsAllegroStandard");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "it-is-allegro-standard"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }

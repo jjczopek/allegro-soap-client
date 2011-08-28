@@ -48,6 +48,8 @@ public class PostBuyFormDataStruct implements java.io.Serializable {
 
     private java.lang.String postBuyFormGdAdditionalInfo;
 
+    private float postBuyFormPaymentAmount;
+
     public PostBuyFormDataStruct() {
     }
 
@@ -71,7 +73,8 @@ public class PostBuyFormDataStruct implements java.io.Serializable {
             pl.net.yuri.magister.soap.PostBuyFormAddressStruct postBuyFormGdAddress,
             pl.net.yuri.magister.soap.PostBuyFormShipmentTrackingStruct[] postBuyFormShipmentTracking,
             long[] postBuyFormSurchargesList,
-            java.lang.String postBuyFormGdAdditionalInfo) {
+            java.lang.String postBuyFormGdAdditionalInfo,
+            float postBuyFormPaymentAmount) {
         this.postBuyFormId = postBuyFormId;
         this.postBuyFormItems = postBuyFormItems;
         this.postBuyFormBuyerId = postBuyFormBuyerId;
@@ -92,6 +95,7 @@ public class PostBuyFormDataStruct implements java.io.Serializable {
         this.postBuyFormShipmentTracking = postBuyFormShipmentTracking;
         this.postBuyFormSurchargesList = postBuyFormSurchargesList;
         this.postBuyFormGdAdditionalInfo = postBuyFormGdAdditionalInfo;
+        this.postBuyFormPaymentAmount = postBuyFormPaymentAmount;
     }
 
 
@@ -494,6 +498,26 @@ public class PostBuyFormDataStruct implements java.io.Serializable {
         this.postBuyFormGdAdditionalInfo = postBuyFormGdAdditionalInfo;
     }
 
+
+    /**
+     * Gets the postBuyFormPaymentAmount value for this PostBuyFormDataStruct.
+     *
+     * @return postBuyFormPaymentAmount
+     */
+    public float getPostBuyFormPaymentAmount() {
+        return postBuyFormPaymentAmount;
+    }
+
+
+    /**
+     * Sets the postBuyFormPaymentAmount value for this PostBuyFormDataStruct.
+     *
+     * @param postBuyFormPaymentAmount
+     */
+    public void setPostBuyFormPaymentAmount(float postBuyFormPaymentAmount) {
+        this.postBuyFormPaymentAmount = postBuyFormPaymentAmount;
+    }
+
     private java.lang.Object __equalsCalc = null;
 
     public synchronized boolean equals(java.lang.Object obj) {
@@ -552,7 +576,8 @@ public class PostBuyFormDataStruct implements java.io.Serializable {
                                 java.util.Arrays.equals(this.postBuyFormSurchargesList, other.getPostBuyFormSurchargesList()))) &&
                 ((this.postBuyFormGdAdditionalInfo == null && other.getPostBuyFormGdAdditionalInfo() == null) ||
                         (this.postBuyFormGdAdditionalInfo != null &&
-                                this.postBuyFormGdAdditionalInfo.equals(other.getPostBuyFormGdAdditionalInfo())));
+                                this.postBuyFormGdAdditionalInfo.equals(other.getPostBuyFormGdAdditionalInfo()))) &&
+                this.postBuyFormPaymentAmount == other.getPostBuyFormPaymentAmount();
         __equalsCalc = null;
         return _equals;
     }
@@ -635,6 +660,7 @@ public class PostBuyFormDataStruct implements java.io.Serializable {
         if (getPostBuyFormGdAdditionalInfo() != null) {
             _hashCode += getPostBuyFormGdAdditionalInfo().hashCode();
         }
+        _hashCode += new Float(getPostBuyFormPaymentAmount()).hashCode();
         __hashCodeCalc = false;
         return _hashCode;
     }
@@ -763,6 +789,12 @@ public class PostBuyFormDataStruct implements java.io.Serializable {
         elemField.setFieldName("postBuyFormGdAdditionalInfo");
         elemField.setXmlName(new javax.xml.namespace.QName("", "post-buy-form-gd-additional-info"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("postBuyFormPaymentAmount");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "post-buy-form-payment-amount"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "float"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }

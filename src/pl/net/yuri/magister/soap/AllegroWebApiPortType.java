@@ -16,17 +16,15 @@ public interface AllegroWebApiPortType extends java.rmi.Remote {
 
     public void doNewAuction(java.lang.String sessionHandle, pl.net.yuri.magister.soap.FieldsValue[] fields, int _private, int localId, javax.xml.rpc.holders.LongHolder itemId, javax.xml.rpc.holders.StringHolder itemInfo) throws java.rmi.RemoteException;
 
-    public void doNewAuctionExt(java.lang.String sessionHandle, pl.net.yuri.magister.soap.FieldsValue[] fields, int _private, int localId, javax.xml.rpc.holders.LongHolder itemId, javax.xml.rpc.holders.StringHolder itemInfo) throws java.rmi.RemoteException;
+    public void doNewAuctionExt(java.lang.String sessionHandle, pl.net.yuri.magister.soap.FieldsValue[] fields, int _private, int localId, javax.xml.rpc.holders.LongHolder itemId, javax.xml.rpc.holders.StringHolder itemInfo, javax.xml.rpc.holders.IntHolder itemIsAllegroStandard) throws java.rmi.RemoteException;
 
-    public void doSellSomeAgain(java.lang.String sessionHandle, long[] sellItemsArray, long sellStartingTime, int sellAuctionDuration, int sellOptions, pl.net.yuri.magister.soap.holders.ArrayOfStructSellAgainHolder itemsSellAgain, pl.net.yuri.magister.soap.holders.ArrayOfStructSellFailedHolder itemsSellFailed, pl.net.yuri.magister.soap.holders.ArrayOfItemsIDHolder itemsSellNotFound) throws java.rmi.RemoteException;
+    public void doSellSomeAgain(java.lang.String sessionHandle, long[] sellItemsArray, long sellStartingTime, int sellAuctionDuration, int sellOptions, int[] localIds, pl.net.yuri.magister.soap.holders.ArrayOfStructSellAgainHolder itemsSellAgain, pl.net.yuri.magister.soap.holders.ArrayOfStructSellFailedHolder itemsSellFailed, pl.net.yuri.magister.soap.holders.ArrayOfItemsIDHolder itemsSellNotFound) throws java.rmi.RemoteException;
 
     public void doCheckNewAuction(java.lang.String sessionHandle, pl.net.yuri.magister.soap.FieldsValue[] fields, javax.xml.rpc.holders.StringHolder itemPrice, javax.xml.rpc.holders.StringHolder itemPriceDesc) throws java.rmi.RemoteException;
 
-    public void doCheckNewAuctionExt(java.lang.String sessionHandle, pl.net.yuri.magister.soap.FieldsValue[] fields, javax.xml.rpc.holders.StringHolder itemPrice, javax.xml.rpc.holders.StringHolder itemPriceDesc) throws java.rmi.RemoteException;
+    public void doCheckNewAuctionExt(java.lang.String sessionHandle, pl.net.yuri.magister.soap.FieldsValue[] fields, javax.xml.rpc.holders.StringHolder itemPrice, javax.xml.rpc.holders.StringHolder itemPriceDesc, javax.xml.rpc.holders.IntHolder itemIsAllegroStandard) throws java.rmi.RemoteException;
 
     public void doAddDescToItems(java.lang.String sessionHandle, long[] itemsIdArray, java.lang.String itDescription, pl.net.yuri.magister.soap.holders.ArrayOfItemsIDHolder arrayItemsAddId, pl.net.yuri.magister.soap.holders.ArrayOfItemsIDHolder arrayItemsDescToLong, pl.net.yuri.magister.soap.holders.ArrayOfItemsIDHolder arrayItemsNotFound) throws java.rmi.RemoteException;
-
-    public long doCheckItemIdByFutureItemId(java.lang.String webapiKey, int countryId, long futureItemId) throws java.rmi.RemoteException;
 
     public void doGetCatsDataLimit(int countryId, long localVersion, java.lang.String webapiKey, int offset, int packageElement, pl.net.yuri.magister.soap.holders.ArrayOfCatsHolder catsList, javax.xml.rpc.holders.LongHolder verKey, javax.xml.rpc.holders.StringHolder verStr) throws java.rmi.RemoteException;
 
@@ -64,7 +62,7 @@ public interface AllegroWebApiPortType extends java.rmi.Remote {
 
     public void doShowUser(java.lang.String webapiKey, int countryId, javax.xml.rpc.holders.LongHolder userId, javax.xml.rpc.holders.StringHolder userLogin, javax.xml.rpc.holders.IntHolder userCountry, javax.xml.rpc.holders.LongHolder userCreateDate, javax.xml.rpc.holders.LongHolder userLoginDate, javax.xml.rpc.holders.IntHolder userRating, javax.xml.rpc.holders.IntHolder userIsNewUser, javax.xml.rpc.holders.IntHolder userNotActivated, javax.xml.rpc.holders.IntHolder userClosed, javax.xml.rpc.holders.IntHolder userBlocked, javax.xml.rpc.holders.IntHolder userTerminated, javax.xml.rpc.holders.IntHolder userHasPage, javax.xml.rpc.holders.IntHolder userIsSseller, javax.xml.rpc.holders.IntHolder userIsEco, pl.net.yuri.magister.soap.holders.ShowUserFeedbacksHolder userPositiveFeedback, pl.net.yuri.magister.soap.holders.ShowUserFeedbacksHolder userNegativeFeedback, pl.net.yuri.magister.soap.holders.ShowUserFeedbacksHolder userNeutralFeedback, javax.xml.rpc.holders.IntHolder userJuniorStatus, javax.xml.rpc.holders.IntHolder userHasShop, javax.xml.rpc.holders.IntHolder userCompanyIcon, javax.xml.rpc.holders.IntHolder userSellRatingCount, pl.net.yuri.magister.soap.holders.ArrayOfSellRatingAverageStructHolder userSellRatingAverage, javax.xml.rpc.holders.IntHolder userIsAllegroStandard, javax.xml.rpc.holders.IntHolder userIsB2CSeller) throws java.rmi.RemoteException;
 
-    public void doVerifyItem(java.lang.String sessionHandle, int localId, javax.xml.rpc.holders.LongHolder itemId, javax.xml.rpc.holders.IntHolder itemListed) throws java.rmi.RemoteException;
+    public void doVerifyItem(java.lang.String sessionHandle, int localId, javax.xml.rpc.holders.LongHolder itemId, javax.xml.rpc.holders.IntHolder itemListed, javax.xml.rpc.holders.LongHolder itemStartingTime) throws java.rmi.RemoteException;
 
     public void doAddWatchList(java.lang.String sessionHandle, long[] itemsIdArray, pl.net.yuri.magister.soap.holders.ArrayOfItemsIDHolder arrayItemsAddId, pl.net.yuri.magister.soap.holders.ArrayOfItemsIDHolder arrayItemsNotFound, pl.net.yuri.magister.soap.holders.ArrayOfItemsIDHolder arrayItemsAdminKilled) throws java.rmi.RemoteException;
 
@@ -98,7 +96,7 @@ public interface AllegroWebApiPortType extends java.rmi.Remote {
 
     public int doSetUserLicenceDate(java.lang.String adminSessionHandle, java.lang.String userLicLogin, int userLicCountry, float userLicDate) throws java.rmi.RemoteException;
 
-    public java.lang.String doBidItem(java.lang.String sessionHandle, long bidItId, float bidUserPrice, long bidQuantity, long bidBuyNow) throws java.rmi.RemoteException;
+    public java.lang.String doBidItem(java.lang.String sessionHandle, long bidItId, float bidUserPrice, long bidQuantity, long bidBuyNow, pl.net.yuri.magister.soap.PharmacyRecipientDataStruct pharmacyRecipientData) throws java.rmi.RemoteException;
 
     public void doCancelBidItem(java.lang.String sessionHandle, long cancelItemId, int[] cancelBidsArray, java.lang.String cancelBidsReason, long cancelAddToBlackList, javax.xml.rpc.holders.IntHolder cancelBidValue, pl.net.yuri.magister.soap.holders.ArrayOfCancelBidsIDHolder cancelledBids, pl.net.yuri.magister.soap.holders.ArrayOfCancelBidsIDHolder notCancelledBids) throws java.rmi.RemoteException;
 
@@ -140,7 +138,7 @@ public interface AllegroWebApiPortType extends java.rmi.Remote {
 
     public int doCheckExternalKey(java.lang.String webapiKey, long userId, long itemId, java.lang.String hashKey) throws java.rmi.RemoteException;
 
-    public void doSellSomeAgainInShop(java.lang.String sessionHandle, long[] sellItemsArray, long sellStartingTime, int sellShopDuration, int sellShopOptions, int sellProlongOptions, long sellShopCategory, pl.net.yuri.magister.soap.holders.ArrayOfStructSellAgainHolder itemsSellAgain, pl.net.yuri.magister.soap.holders.ArrayOfStructSellFailedHolder itemsSellFailed, pl.net.yuri.magister.soap.holders.ArrayOfItemsIDHolder itemsSellNotFound) throws java.rmi.RemoteException;
+    public void doSellSomeAgainInShop(java.lang.String sessionHandle, long[] sellItemsArray, long sellStartingTime, int sellShopDuration, int sellShopOptions, int sellProlongOptions, long sellShopCategory, int[] localIds, pl.net.yuri.magister.soap.holders.ArrayOfStructSellAgainHolder itemsSellAgain, pl.net.yuri.magister.soap.holders.ArrayOfStructSellFailedHolder itemsSellFailed, pl.net.yuri.magister.soap.holders.ArrayOfItemsIDHolder itemsSellNotFound) throws java.rmi.RemoteException;
 
     public int doGetSuperSellerStatus(java.lang.String webapiKey, long userId) throws java.rmi.RemoteException;
 
@@ -182,7 +180,7 @@ public interface AllegroWebApiPortType extends java.rmi.Remote {
 
     public pl.net.yuri.magister.soap.UserIncomingPaymentStruct[] doGetMyIncomingPayments(java.lang.String sessionHandle, int buyerId, long itemId, long transRecvDateFrom, long transRecvDateTo, int transPageLimit, int transOffset) throws java.rmi.RemoteException;
 
-    public pl.net.yuri.magister.soap.UserPaymentStruct[] doGetMyPayments(java.lang.String sessionHandle, int sellerId, long itemId, long transCreateDateFrom, long transCreateDateTo, int transPageLimit, int transOffset) throws java.rmi.RemoteException;
+    public pl.net.yuri.magister.soap.UserPaymentStruct[] doGetMyPayments(java.lang.String sessionId, int sellerId, long itemId, long paymentTimeFrom, long paymentTimeTo, int pageSize, int pageNumber) throws java.rmi.RemoteException;
 
     public pl.net.yuri.magister.soap.UserPayoutStruct[] doGetMyPayouts(java.lang.String sessionHandle, long transCreateDateFrom, long transCreateDateTo, int transPageLimit, int transOffset) throws java.rmi.RemoteException;
 
@@ -192,7 +190,7 @@ public interface AllegroWebApiPortType extends java.rmi.Remote {
 
     public java.lang.String doSendEmailToUser(java.lang.String sessionHandle, long mailToUserItemId, javax.xml.rpc.holders.LongHolder mailToUserReceiverId, int mailToUserSubjectId, int mailToUserOption, java.lang.String mailToUserMessage) throws java.rmi.RemoteException;
 
-    public long[] doGetTransactionsIDs(java.lang.String sessionHandle, long[] itemsIdArray, java.lang.String userRole) throws java.rmi.RemoteException;
+    public long[] doGetTransactionsIDs(java.lang.String sessionHandle, long[] itemsIdArray, java.lang.String userRole, long[] shipmentIdArray) throws java.rmi.RemoteException;
 
     public pl.net.yuri.magister.soap.PostBuyFormDataStruct[] doGetPostBuyFormsData(java.lang.String sessionHandle, long[] transactionsIdsArray) throws java.rmi.RemoteException;
 
@@ -207,6 +205,10 @@ public interface AllegroWebApiPortType extends java.rmi.Remote {
     public pl.net.yuri.magister.soap.DealsStruct[] doGetDeals(java.lang.String sessionHandle, long itemId, int buyerId) throws java.rmi.RemoteException;
 
     public float doMakeDiscount(java.lang.String sessionHandle, long dealId, float discountAmount, float discountPercentage) throws java.rmi.RemoteException;
+
+    public pl.net.yuri.magister.soap.SiteJournalDealsStruct[] doGetSiteJournalDeals(java.lang.String sessionId, long journalStart) throws java.rmi.RemoteException;
+
+    public pl.net.yuri.magister.soap.SiteJournalDealsInfoStruct doGetSiteJournalDealsInfo(java.lang.String sessionId, long journalStart) throws java.rmi.RemoteException;
 
     public void doChangeItem(java.lang.String sessionHandle, javax.xml.rpc.holders.LongHolder itemId, pl.net.yuri.magister.soap.FieldsValue[] itemFields, pl.net.yuri.magister.soap.ItemImageOptionsStruct[] itemImagesOptions, javax.xml.rpc.holders.FloatHolder itemCountrySurchargeValue, javax.xml.rpc.holders.StringHolder itemCountrySurchargeCurrency, javax.xml.rpc.holders.FloatHolder sellerCountrySurchargeValue, javax.xml.rpc.holders.StringHolder sellerCountrySurchargeCurrency) throws java.rmi.RemoteException;
 
@@ -223,4 +225,12 @@ public interface AllegroWebApiPortType extends java.rmi.Remote {
     public pl.net.yuri.magister.soap.ProductStruct doFindProductByCode(java.lang.String sessionHandle, java.lang.String productCode) throws java.rmi.RemoteException;
 
     public int doRequestSurcharge(java.lang.String sessionHandle, long transactionId, float surchargeValue, java.lang.String surchargeMessageToBuyer) throws java.rmi.RemoteException;
+
+    public pl.net.yuri.magister.soap.PostBuyFormForBuyersDataStruct[] doGetPostBuyFormsDataForBuyers(java.lang.String sessionId, long[] transactionsIdsArray) throws java.rmi.RemoteException;
+
+    public pl.net.yuri.magister.soap.PostBuyFormDataStruct[] doGetPostBuyFormsDataForSellers(java.lang.String sessionId, long[] transactionsIdsArray) throws java.rmi.RemoteException;
+
+    public pl.net.yuri.magister.soap.PostBuyFormPackageInfoStruct doAddPackageInfoToPostBuyForm(java.lang.String sessionId, long transactionId, pl.net.yuri.magister.soap.PackageInfoStruct[] packageInfo) throws java.rmi.RemoteException;
+
+    public pl.net.yuri.magister.soap.WatchListInfoStruct doAddToWatchList(java.lang.String sessionId, long[] itemIds) throws java.rmi.RemoteException;
 }

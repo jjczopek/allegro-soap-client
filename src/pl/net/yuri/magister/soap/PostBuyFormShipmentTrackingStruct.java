@@ -12,14 +12,18 @@ public class PostBuyFormShipmentTrackingStruct implements java.io.Serializable {
 
     private java.lang.String postBuyFormPackageId;
 
+    private java.lang.String postBuyFormPackageStatus;
+
     public PostBuyFormShipmentTrackingStruct() {
     }
 
     public PostBuyFormShipmentTrackingStruct(
             int postBuyFormOperatorId,
-            java.lang.String postBuyFormPackageId) {
+            java.lang.String postBuyFormPackageId,
+            java.lang.String postBuyFormPackageStatus) {
         this.postBuyFormOperatorId = postBuyFormOperatorId;
         this.postBuyFormPackageId = postBuyFormPackageId;
+        this.postBuyFormPackageStatus = postBuyFormPackageStatus;
     }
 
 
@@ -62,6 +66,26 @@ public class PostBuyFormShipmentTrackingStruct implements java.io.Serializable {
         this.postBuyFormPackageId = postBuyFormPackageId;
     }
 
+
+    /**
+     * Gets the postBuyFormPackageStatus value for this PostBuyFormShipmentTrackingStruct.
+     *
+     * @return postBuyFormPackageStatus
+     */
+    public java.lang.String getPostBuyFormPackageStatus() {
+        return postBuyFormPackageStatus;
+    }
+
+
+    /**
+     * Sets the postBuyFormPackageStatus value for this PostBuyFormShipmentTrackingStruct.
+     *
+     * @param postBuyFormPackageStatus
+     */
+    public void setPostBuyFormPackageStatus(java.lang.String postBuyFormPackageStatus) {
+        this.postBuyFormPackageStatus = postBuyFormPackageStatus;
+    }
+
     private java.lang.Object __equalsCalc = null;
 
     public synchronized boolean equals(java.lang.Object obj) {
@@ -78,7 +102,10 @@ public class PostBuyFormShipmentTrackingStruct implements java.io.Serializable {
                 this.postBuyFormOperatorId == other.getPostBuyFormOperatorId() &&
                 ((this.postBuyFormPackageId == null && other.getPostBuyFormPackageId() == null) ||
                         (this.postBuyFormPackageId != null &&
-                                this.postBuyFormPackageId.equals(other.getPostBuyFormPackageId())));
+                                this.postBuyFormPackageId.equals(other.getPostBuyFormPackageId()))) &&
+                ((this.postBuyFormPackageStatus == null && other.getPostBuyFormPackageStatus() == null) ||
+                        (this.postBuyFormPackageStatus != null &&
+                                this.postBuyFormPackageStatus.equals(other.getPostBuyFormPackageStatus())));
         __equalsCalc = null;
         return _equals;
     }
@@ -94,6 +121,9 @@ public class PostBuyFormShipmentTrackingStruct implements java.io.Serializable {
         _hashCode += getPostBuyFormOperatorId();
         if (getPostBuyFormPackageId() != null) {
             _hashCode += getPostBuyFormPackageId().hashCode();
+        }
+        if (getPostBuyFormPackageStatus() != null) {
+            _hashCode += getPostBuyFormPackageStatus().hashCode();
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -114,6 +144,12 @@ public class PostBuyFormShipmentTrackingStruct implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("postBuyFormPackageId");
         elemField.setXmlName(new javax.xml.namespace.QName("", "post-buy-form-package-id"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("postBuyFormPackageStatus");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "post-buy-form-package-status"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

@@ -8,11 +8,9 @@
       <root url="jar://$PROJECT_DIR$/lib/log4j-1.2.8.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/saaj.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/wsdl4j-1.5.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../../commons-cli-1.2/commons-cli-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../libraries/commons-cli-1.2/commons-cli-1.2.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://$PROJECT_DIR$/../../commons-cli-1.2/commons-cli-1.2-javadoc.jar!/" />
-    </JAVADOC>
+    <JAVADOC />
     <SOURCES>
       <root url="file://$PROJECT_DIR$/../../axis-1_4/src" />
     </SOURCES>

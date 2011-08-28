@@ -38,6 +38,8 @@ public class UserItemList implements java.io.Serializable {
 
     private java.lang.String itThumbUrl;
 
+    private int itIsAllegroStandard;
+
     public UserItemList() {
     }
 
@@ -56,7 +58,8 @@ public class UserItemList implements java.io.Serializable {
             int itIsEscrow,
             long itStartingTime,
             int itIsReservedPrice,
-            java.lang.String itThumbUrl) {
+            java.lang.String itThumbUrl,
+            int itIsAllegroStandard) {
         this.itId = itId;
         this.itName = itName;
         this.itPrice = itPrice;
@@ -72,6 +75,7 @@ public class UserItemList implements java.io.Serializable {
         this.itStartingTime = itStartingTime;
         this.itIsReservedPrice = itIsReservedPrice;
         this.itThumbUrl = itThumbUrl;
+        this.itIsAllegroStandard = itIsAllegroStandard;
     }
 
 
@@ -374,6 +378,26 @@ public class UserItemList implements java.io.Serializable {
         this.itThumbUrl = itThumbUrl;
     }
 
+
+    /**
+     * Gets the itIsAllegroStandard value for this UserItemList.
+     *
+     * @return itIsAllegroStandard
+     */
+    public int getItIsAllegroStandard() {
+        return itIsAllegroStandard;
+    }
+
+
+    /**
+     * Sets the itIsAllegroStandard value for this UserItemList.
+     *
+     * @param itIsAllegroStandard
+     */
+    public void setItIsAllegroStandard(int itIsAllegroStandard) {
+        this.itIsAllegroStandard = itIsAllegroStandard;
+    }
+
     private java.lang.Object __equalsCalc = null;
 
     public synchronized boolean equals(java.lang.Object obj) {
@@ -405,7 +429,8 @@ public class UserItemList implements java.io.Serializable {
                 this.itIsReservedPrice == other.getItIsReservedPrice() &&
                 ((this.itThumbUrl == null && other.getItThumbUrl() == null) ||
                         (this.itThumbUrl != null &&
-                                this.itThumbUrl.equals(other.getItThumbUrl())));
+                                this.itThumbUrl.equals(other.getItThumbUrl()))) &&
+                this.itIsAllegroStandard == other.getItIsAllegroStandard();
         __equalsCalc = null;
         return _equals;
     }
@@ -437,6 +462,7 @@ public class UserItemList implements java.io.Serializable {
         if (getItThumbUrl() != null) {
             _hashCode += getItThumbUrl().hashCode();
         }
+        _hashCode += getItIsAllegroStandard();
         __hashCodeCalc = false;
         return _hashCode;
     }
@@ -535,6 +561,12 @@ public class UserItemList implements java.io.Serializable {
         elemField.setFieldName("itThumbUrl");
         elemField.setXmlName(new javax.xml.namespace.QName("", "it-thumb-url"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("itIsAllegroStandard");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "it-is-allegro-standard"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }

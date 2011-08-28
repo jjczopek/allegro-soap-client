@@ -10,9 +10,7 @@ package pl.net.yuri.magister.soap;
 public class UserPaymentStruct implements java.io.Serializable {
     private long payTransId;
 
-    private long payTransItId;
-
-    private int payTransSellerId;
+    private pl.net.yuri.magister.soap.PaymentSellersStruct[] payTransSellers;
 
     private java.lang.String payTransType;
 
@@ -24,11 +22,7 @@ public class UserPaymentStruct implements java.io.Serializable {
 
     private float payTransPrice;
 
-    private int payTransCount;
-
     private float payTransPostageAmount;
-
-    private pl.net.yuri.magister.soap.PaymentDetailsStruct[] payTransDetails;
 
     private int payTransIncomplete;
 
@@ -37,28 +31,22 @@ public class UserPaymentStruct implements java.io.Serializable {
 
     public UserPaymentStruct(
             long payTransId,
-            long payTransItId,
-            int payTransSellerId,
+            pl.net.yuri.magister.soap.PaymentSellersStruct[] payTransSellers,
             java.lang.String payTransType,
             java.lang.String payTransStatus,
             float payTransAmount,
             long payTransCreateDate,
             float payTransPrice,
-            int payTransCount,
             float payTransPostageAmount,
-            pl.net.yuri.magister.soap.PaymentDetailsStruct[] payTransDetails,
             int payTransIncomplete) {
         this.payTransId = payTransId;
-        this.payTransItId = payTransItId;
-        this.payTransSellerId = payTransSellerId;
+        this.payTransSellers = payTransSellers;
         this.payTransType = payTransType;
         this.payTransStatus = payTransStatus;
         this.payTransAmount = payTransAmount;
         this.payTransCreateDate = payTransCreateDate;
         this.payTransPrice = payTransPrice;
-        this.payTransCount = payTransCount;
         this.payTransPostageAmount = payTransPostageAmount;
-        this.payTransDetails = payTransDetails;
         this.payTransIncomplete = payTransIncomplete;
     }
 
@@ -84,42 +72,22 @@ public class UserPaymentStruct implements java.io.Serializable {
 
 
     /**
-     * Gets the payTransItId value for this UserPaymentStruct.
+     * Gets the payTransSellers value for this UserPaymentStruct.
      *
-     * @return payTransItId
+     * @return payTransSellers
      */
-    public long getPayTransItId() {
-        return payTransItId;
+    public pl.net.yuri.magister.soap.PaymentSellersStruct[] getPayTransSellers() {
+        return payTransSellers;
     }
 
 
     /**
-     * Sets the payTransItId value for this UserPaymentStruct.
+     * Sets the payTransSellers value for this UserPaymentStruct.
      *
-     * @param payTransItId
+     * @param payTransSellers
      */
-    public void setPayTransItId(long payTransItId) {
-        this.payTransItId = payTransItId;
-    }
-
-
-    /**
-     * Gets the payTransSellerId value for this UserPaymentStruct.
-     *
-     * @return payTransSellerId
-     */
-    public int getPayTransSellerId() {
-        return payTransSellerId;
-    }
-
-
-    /**
-     * Sets the payTransSellerId value for this UserPaymentStruct.
-     *
-     * @param payTransSellerId
-     */
-    public void setPayTransSellerId(int payTransSellerId) {
-        this.payTransSellerId = payTransSellerId;
+    public void setPayTransSellers(pl.net.yuri.magister.soap.PaymentSellersStruct[] payTransSellers) {
+        this.payTransSellers = payTransSellers;
     }
 
 
@@ -224,26 +192,6 @@ public class UserPaymentStruct implements java.io.Serializable {
 
 
     /**
-     * Gets the payTransCount value for this UserPaymentStruct.
-     *
-     * @return payTransCount
-     */
-    public int getPayTransCount() {
-        return payTransCount;
-    }
-
-
-    /**
-     * Sets the payTransCount value for this UserPaymentStruct.
-     *
-     * @param payTransCount
-     */
-    public void setPayTransCount(int payTransCount) {
-        this.payTransCount = payTransCount;
-    }
-
-
-    /**
      * Gets the payTransPostageAmount value for this UserPaymentStruct.
      *
      * @return payTransPostageAmount
@@ -260,26 +208,6 @@ public class UserPaymentStruct implements java.io.Serializable {
      */
     public void setPayTransPostageAmount(float payTransPostageAmount) {
         this.payTransPostageAmount = payTransPostageAmount;
-    }
-
-
-    /**
-     * Gets the payTransDetails value for this UserPaymentStruct.
-     *
-     * @return payTransDetails
-     */
-    public pl.net.yuri.magister.soap.PaymentDetailsStruct[] getPayTransDetails() {
-        return payTransDetails;
-    }
-
-
-    /**
-     * Sets the payTransDetails value for this UserPaymentStruct.
-     *
-     * @param payTransDetails
-     */
-    public void setPayTransDetails(pl.net.yuri.magister.soap.PaymentDetailsStruct[] payTransDetails) {
-        this.payTransDetails = payTransDetails;
     }
 
 
@@ -316,8 +244,9 @@ public class UserPaymentStruct implements java.io.Serializable {
         boolean _equals;
         _equals = true &&
                 this.payTransId == other.getPayTransId() &&
-                this.payTransItId == other.getPayTransItId() &&
-                this.payTransSellerId == other.getPayTransSellerId() &&
+                ((this.payTransSellers == null && other.getPayTransSellers() == null) ||
+                        (this.payTransSellers != null &&
+                                java.util.Arrays.equals(this.payTransSellers, other.getPayTransSellers()))) &&
                 ((this.payTransType == null && other.getPayTransType() == null) ||
                         (this.payTransType != null &&
                                 this.payTransType.equals(other.getPayTransType()))) &&
@@ -327,11 +256,7 @@ public class UserPaymentStruct implements java.io.Serializable {
                 this.payTransAmount == other.getPayTransAmount() &&
                 this.payTransCreateDate == other.getPayTransCreateDate() &&
                 this.payTransPrice == other.getPayTransPrice() &&
-                this.payTransCount == other.getPayTransCount() &&
                 this.payTransPostageAmount == other.getPayTransPostageAmount() &&
-                ((this.payTransDetails == null && other.getPayTransDetails() == null) ||
-                        (this.payTransDetails != null &&
-                                java.util.Arrays.equals(this.payTransDetails, other.getPayTransDetails()))) &&
                 this.payTransIncomplete == other.getPayTransIncomplete();
         __equalsCalc = null;
         return _equals;
@@ -346,8 +271,17 @@ public class UserPaymentStruct implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         _hashCode += new Long(getPayTransId()).hashCode();
-        _hashCode += new Long(getPayTransItId()).hashCode();
-        _hashCode += getPayTransSellerId();
+        if (getPayTransSellers() != null) {
+            for (int i = 0;
+                 i < java.lang.reflect.Array.getLength(getPayTransSellers());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getPayTransSellers(), i);
+                if (obj != null &&
+                        !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
         if (getPayTransType() != null) {
             _hashCode += getPayTransType().hashCode();
         }
@@ -357,19 +291,7 @@ public class UserPaymentStruct implements java.io.Serializable {
         _hashCode += new Float(getPayTransAmount()).hashCode();
         _hashCode += new Long(getPayTransCreateDate()).hashCode();
         _hashCode += new Float(getPayTransPrice()).hashCode();
-        _hashCode += getPayTransCount();
         _hashCode += new Float(getPayTransPostageAmount()).hashCode();
-        if (getPayTransDetails() != null) {
-            for (int i = 0;
-                 i < java.lang.reflect.Array.getLength(getPayTransDetails());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getPayTransDetails(), i);
-                if (obj != null &&
-                        !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
-        }
         _hashCode += getPayTransIncomplete();
         __hashCodeCalc = false;
         return _hashCode;
@@ -388,15 +310,9 @@ public class UserPaymentStruct implements java.io.Serializable {
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("payTransItId");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "pay-trans-it-id"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("payTransSellerId");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "pay-trans-seller-id"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setFieldName("payTransSellers");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "pay-trans-sellers"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:AllegroWebApi", "PaymentSellersStruct"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
@@ -430,21 +346,9 @@ public class UserPaymentStruct implements java.io.Serializable {
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("payTransCount");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "pay-trans-count"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("payTransPostageAmount");
         elemField.setXmlName(new javax.xml.namespace.QName("", "pay-trans-postage-amount"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "float"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("payTransDetails");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "pay-trans-details"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:AllegroWebApi", "PaymentDetailsStruct"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();

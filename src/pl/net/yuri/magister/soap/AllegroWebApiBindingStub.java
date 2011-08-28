@@ -16,7 +16,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
     static org.apache.axis.description.OperationDesc[] _operations;
 
     static {
-        _operations = new org.apache.axis.description.OperationDesc[108];
+        _operations = new org.apache.axis.description.OperationDesc[113];
         _initOperationDesc1();
         _initOperationDesc2();
         _initOperationDesc3();
@@ -28,6 +28,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         _initOperationDesc9();
         _initOperationDesc10();
         _initOperationDesc11();
+        _initOperationDesc12();
     }
 
     private static void _initOperationDesc1() {
@@ -131,6 +132,8 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "item-info"), org.apache.axis.description.ParameterDesc.OUT, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "item-is-allegro-standard"), org.apache.axis.description.ParameterDesc.OUT, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
+        oper.addParameter(param);
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
@@ -147,6 +150,8 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "sell-auction-duration"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "sell-options"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "local-ids"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfLocalIds"), int[].class, false, false);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "items-sell-again"), org.apache.axis.description.ParameterDesc.OUT, new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfStructSellAgain"), pl.net.yuri.magister.soap.StructSellAgain[].class, false, false);
         oper.addParameter(param);
@@ -184,6 +189,8 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "item-price-desc"), org.apache.axis.description.ParameterDesc.OUT, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "item-is-allegro-standard"), org.apache.axis.description.ParameterDesc.OUT, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
+        oper.addParameter(param);
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
@@ -209,26 +216,6 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         _operations[8] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("doCheckItemIdByFutureItemId");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "webapi-key"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "country-id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "future-item-id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
-        oper.setReturnClass(long.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "item-id"));
-        oper.setStyle(org.apache.axis.constants.Style.RPC);
-        oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[9] = oper;
-
-    }
-
-    private static void _initOperationDesc2() {
-        org.apache.axis.description.OperationDesc oper;
-        org.apache.axis.description.ParameterDesc param;
-        oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetCatsDataLimit");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "country-id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
         oper.addParameter(param);
@@ -249,8 +236,13 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[10] = oper;
+        _operations[9] = oper;
 
+    }
+
+    private static void _initOperationDesc2() {
+        org.apache.axis.description.OperationDesc oper;
+        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetItemsInfo");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "session-handle"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -276,7 +268,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[11] = oper;
+        _operations[10] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetPaymentData");
@@ -289,7 +281,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "payment-list"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[12] = oper;
+        _operations[11] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetSellFormFields");
@@ -308,7 +300,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[13] = oper;
+        _operations[12] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetSellFormFieldsExt");
@@ -327,7 +319,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[14] = oper;
+        _operations[13] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetSitesFlagInfo");
@@ -344,7 +336,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[15] = oper;
+        _operations[14] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetSitesInfo");
@@ -361,7 +353,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[16] = oper;
+        _operations[15] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetSystemTime");
@@ -374,7 +366,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "server-time"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[17] = oper;
+        _operations[16] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetUserID");
@@ -391,7 +383,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "user-id"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[18] = oper;
+        _operations[17] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetUserItems");
@@ -412,13 +404,8 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[19] = oper;
+        _operations[18] = oper;
 
-    }
-
-    private static void _initOperationDesc3() {
-        org.apache.axis.description.OperationDesc oper;
-        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetUserLogin");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "country-id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
@@ -432,8 +419,13 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "user-login"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[20] = oper;
+        _operations[19] = oper;
 
+    }
+
+    private static void _initOperationDesc3() {
+        org.apache.axis.description.OperationDesc oper;
+        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doQueryAllSysStatus");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "country-id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
@@ -445,7 +437,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "sys-country-status"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[21] = oper;
+        _operations[20] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetSellFormFieldsExtLimit");
@@ -470,7 +462,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[22] = oper;
+        _operations[21] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetSellFormFieldsLimit");
@@ -495,7 +487,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[23] = oper;
+        _operations[22] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doQuerySysStatus");
@@ -512,7 +504,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[24] = oper;
+        _operations[23] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doShowCat");
@@ -553,7 +545,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[25] = oper;
+        _operations[24] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doShowItemInfo");
@@ -588,7 +580,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[26] = oper;
+        _operations[25] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doShowUser");
@@ -647,7 +639,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[27] = oper;
+        _operations[26] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doVerifyItem");
@@ -659,10 +651,12 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "item-listed"), org.apache.axis.description.ParameterDesc.OUT, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
         oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "item-starting-time"), org.apache.axis.description.ParameterDesc.OUT, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
+        oper.addParameter(param);
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[28] = oper;
+        _operations[27] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doAddWatchList");
@@ -679,13 +673,8 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[29] = oper;
+        _operations[28] = oper;
 
-    }
-
-    private static void _initOperationDesc4() {
-        org.apache.axis.description.OperationDesc oper;
-        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doFeedback");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "session-handle"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -709,8 +698,13 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "feedback-id"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[30] = oper;
+        _operations[29] = oper;
 
+    }
+
+    private static void _initOperationDesc4() {
+        org.apache.axis.description.OperationDesc oper;
+        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetBidItem2");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "session-handle"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -722,7 +716,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "biditem-list"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[31] = oper;
+        _operations[30] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetFeedback");
@@ -743,7 +737,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[32] = oper;
+        _operations[31] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetSiteJournal");
@@ -758,7 +752,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "site-journal-array"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[33] = oper;
+        _operations[32] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetSiteJournalInfo");
@@ -773,7 +767,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "site-journal-info"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[34] = oper;
+        _operations[33] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doMyAccount2");
@@ -792,7 +786,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "myaccount-list"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[35] = oper;
+        _operations[34] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doMyAccountItemsCount");
@@ -807,7 +801,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "myaccount-items-count"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[36] = oper;
+        _operations[35] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doMyBilling");
@@ -818,7 +812,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "my-billing"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[37] = oper;
+        _operations[36] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doMyContact");
@@ -835,7 +829,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "mycontact-list"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[38] = oper;
+        _operations[37] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doMyFeedback2");
@@ -854,13 +848,8 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "myfeedback-list"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[39] = oper;
+        _operations[38] = oper;
 
-    }
-
-    private static void _initOperationDesc5() {
-        org.apache.axis.description.OperationDesc oper;
-        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doSearch");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "session-handle"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -878,8 +867,13 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[40] = oper;
+        _operations[39] = oper;
 
+    }
+
+    private static void _initOperationDesc5() {
+        org.apache.axis.description.OperationDesc oper;
+        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetAdminUserLicenceDate");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "admin-session-handle"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -891,7 +885,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "get-date-value"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[41] = oper;
+        _operations[40] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetUserLicenceDate");
@@ -902,7 +896,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "get-date-value"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[42] = oper;
+        _operations[41] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doMyBillingItem");
@@ -919,7 +913,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[43] = oper;
+        _operations[42] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doSetUserLicenceDate");
@@ -936,7 +930,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "set-date-value"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[44] = oper;
+        _operations[43] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doBidItem");
@@ -950,12 +944,14 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "bid-buy-now"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
         oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "pharmacy-recipient-data"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("urn:AllegroWebApi", "PharmacyRecipientDataStruct"), pl.net.yuri.magister.soap.PharmacyRecipientDataStruct.class, false, false);
+        oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         oper.setReturnClass(java.lang.String.class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "bid-price"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[45] = oper;
+        _operations[44] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doCancelBidItem");
@@ -978,7 +974,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[46] = oper;
+        _operations[45] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doChangePriceItem");
@@ -997,7 +993,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "item-info"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[47] = oper;
+        _operations[46] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doFinishItem");
@@ -1014,7 +1010,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "finish-value"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[48] = oper;
+        _operations[47] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doRequestCancelBid");
@@ -1029,13 +1025,8 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "request-value"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[49] = oper;
+        _operations[48] = oper;
 
-    }
-
-    private static void _initOperationDesc6() {
-        org.apache.axis.description.OperationDesc oper;
-        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetCatsDataCount");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "country-id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
@@ -1053,8 +1044,13 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[50] = oper;
+        _operations[49] = oper;
 
+    }
+
+    private static void _initOperationDesc6() {
+        org.apache.axis.description.OperationDesc oper;
+        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doMyFeedback2Limit");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "session-handle"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -1074,7 +1070,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "myfeedback-list"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[51] = oper;
+        _operations[50] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetCountries");
@@ -1087,7 +1083,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "country-array"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[52] = oper;
+        _operations[51] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetServiceTemplates");
@@ -1100,7 +1096,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "templates-array"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[53] = oper;
+        _operations[52] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetSellFormAttribs");
@@ -1121,7 +1117,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[54] = oper;
+        _operations[53] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doFeedbackMany");
@@ -1134,7 +1130,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "fe-results"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[55] = oper;
+        _operations[54] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doShowItemInfoExt");
@@ -1169,7 +1165,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[56] = oper;
+        _operations[55] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetWaitingFeedbacksCount");
@@ -1180,7 +1176,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "feedback-count"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[57] = oper;
+        _operations[56] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetWaitingFeedbacks");
@@ -1195,7 +1191,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "fe-wait-list"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[58] = oper;
+        _operations[57] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetBlackListUsers");
@@ -1206,13 +1202,8 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "black-list-users"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[59] = oper;
+        _operations[58] = oper;
 
-    }
-
-    private static void _initOperationDesc7() {
-        org.apache.axis.description.OperationDesc oper;
-        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doRemoveFromBlackList");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "session-handle"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -1224,8 +1215,13 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "black-list-result"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[60] = oper;
+        _operations[59] = oper;
 
+    }
+
+    private static void _initOperationDesc7() {
+        org.apache.axis.description.OperationDesc oper;
+        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetServiceInfoCategories");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "country-code"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
@@ -1237,7 +1233,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "service-info-cats-list"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[61] = oper;
+        _operations[60] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetServiceInfo");
@@ -1256,7 +1252,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "service-info-items-list"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[62] = oper;
+        _operations[61] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetStatesInfo");
@@ -1269,7 +1265,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "states-info-array"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[63] = oper;
+        _operations[62] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetShopCatsData");
@@ -1280,7 +1276,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "shop-cats-list"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[64] = oper;
+        _operations[63] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doCheckExternalKey");
@@ -1297,7 +1293,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "result"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[65] = oper;
+        _operations[64] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doSellSomeAgainInShop");
@@ -1315,6 +1311,8 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "sell-shop-category"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
         oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "local-ids"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfLocalIds"), int[].class, false, false);
+        oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "items-sell-again"), org.apache.axis.description.ParameterDesc.OUT, new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfStructSellAgain"), pl.net.yuri.magister.soap.StructSellAgain[].class, false, false);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "items-sell-failed"), org.apache.axis.description.ParameterDesc.OUT, new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfStructSellFailed"), pl.net.yuri.magister.soap.StructSellFailed[].class, false, false);
@@ -1324,7 +1322,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[66] = oper;
+        _operations[65] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetSuperSellerStatus");
@@ -1337,7 +1335,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "user-ss-status"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[67] = oper;
+        _operations[66] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetMyData");
@@ -1358,7 +1356,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[68] = oper;
+        _operations[67] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doInternalIStoreChange");
@@ -1379,13 +1377,8 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "result"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[69] = oper;
+        _operations[68] = oper;
 
-    }
-
-    private static void _initOperationDesc8() {
-        org.apache.axis.description.OperationDesc oper;
-        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetFavouriteSellers");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "session-handle"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -1395,8 +1388,13 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "s-favourite-sellers-list"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[70] = oper;
+        _operations[69] = oper;
 
+    }
+
+    private static void _initOperationDesc8() {
+        org.apache.axis.description.OperationDesc oper;
+        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetFavouriteCategories");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "session-handle"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -1406,7 +1404,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "s-favourite-categories-list"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[71] = oper;
+        _operations[70] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetItemsImages");
@@ -1421,7 +1419,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "get_items_images_result"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[72] = oper;
+        _operations[71] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetSpecialItems");
@@ -1440,7 +1438,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "s-special-list"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[73] = oper;
+        _operations[72] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doAddToBlackList");
@@ -1453,7 +1451,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "user-black-list-results-arr"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[74] = oper;
+        _operations[73] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetPostBuyData");
@@ -1466,7 +1464,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "items-post-buy-data"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[75] = oper;
+        _operations[74] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doCancelRefundForms");
@@ -1479,7 +1477,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "cancel-refund-forms-results-arr"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[76] = oper;
+        _operations[75] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetSessionHandleForWidget");
@@ -1494,7 +1492,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[77] = oper;
+        _operations[76] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doCancelRefundWarnings");
@@ -1507,7 +1505,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "cancel-refund-warnings-results-arr"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[78] = oper;
+        _operations[77] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doInternalSendMessage");
@@ -1524,13 +1522,8 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "result"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[79] = oper;
+        _operations[78] = oper;
 
-    }
-
-    private static void _initOperationDesc9() {
-        org.apache.axis.description.OperationDesc oper;
-        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetRefundTransactions");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "session-handle"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -1546,8 +1539,13 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[80] = oper;
+        _operations[79] = oper;
 
+    }
+
+    private static void _initOperationDesc9() {
+        org.apache.axis.description.OperationDesc oper;
+        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doSendReminderMessages");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "session-handle"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -1559,7 +1557,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "send-reminder-messages-results-arr"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[81] = oper;
+        _operations[80] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doRemoveFromWatchList");
@@ -1572,7 +1570,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "watch-list-result"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[82] = oper;
+        _operations[81] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doSendRefundForms");
@@ -1585,7 +1583,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "send-refund-forms-results-arr"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[83] = oper;
+        _operations[82] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetRefundFormsStatuses");
@@ -1598,7 +1596,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "refund-forms-statuses-results-arr"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[84] = oper;
+        _operations[83] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetRefundReasons");
@@ -1611,7 +1609,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "refund-reasons-arr"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[85] = oper;
+        _operations[84] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetMyIncomingPayments");
@@ -1634,30 +1632,30 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "pay-trans-income"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[86] = oper;
+        _operations[85] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetMyPayments");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "session-handle"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "session-id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "seller-id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "item-id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "trans-create-date-from"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "payment-time-from"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "trans-create-date-to"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "payment-time-to"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "trans-page-limit"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "page-size"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "trans-offset"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "page-number"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfUserPaymentStruct"));
         oper.setReturnClass(pl.net.yuri.magister.soap.UserPaymentStruct[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "pay-trans-payment"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[87] = oper;
+        _operations[86] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetMyPayouts");
@@ -1676,7 +1674,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "pay-trans-payout"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[88] = oper;
+        _operations[87] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doChangeQuantityItem");
@@ -1695,13 +1693,8 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[89] = oper;
+        _operations[88] = oper;
 
-    }
-
-    private static void _initOperationDesc10() {
-        org.apache.axis.description.OperationDesc oper;
-        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doShowUserPage");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "webapi-key"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -1719,8 +1712,13 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[90] = oper;
+        _operations[89] = oper;
 
+    }
+
+    private static void _initOperationDesc10() {
+        org.apache.axis.description.OperationDesc oper;
+        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doSendEmailToUser");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "session-handle"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -1740,7 +1738,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "mail-to-user-result"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[91] = oper;
+        _operations[90] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetTransactionsIDs");
@@ -1750,12 +1748,14 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "user-role"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "shipment-id-array"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfShipmentIds"), long[].class, false, false);
+        oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfTransactionsID"));
         oper.setReturnClass(long[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "transactions-ids-array"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[92] = oper;
+        _operations[91] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetPostBuyFormsData");
@@ -1768,7 +1768,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "post-buy-form-data"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[93] = oper;
+        _operations[92] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetMyIncomingPaymentsRefunds");
@@ -1787,7 +1787,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "pay-trans-income-refunds"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[94] = oper;
+        _operations[93] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetMyPaymentsRefunds");
@@ -1806,7 +1806,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "pay-trans-payment-refunds"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[95] = oper;
+        _operations[94] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetMySellRating");
@@ -1823,7 +1823,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[96] = oper;
+        _operations[95] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetSellRatingReasons");
@@ -1836,7 +1836,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "sell-rating-info"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[97] = oper;
+        _operations[96] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetDeals");
@@ -1851,7 +1851,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "deals-list"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[98] = oper;
+        _operations[97] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doMakeDiscount");
@@ -1868,6 +1868,19 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "deal-amount-discounted"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
+        _operations[98] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("doGetSiteJournalDeals");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "session-id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "journal-start"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfSiteJournalDealsStruct"));
+        oper.setReturnClass(pl.net.yuri.magister.soap.SiteJournalDealsStruct[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "site-journal-deals"));
+        oper.setStyle(org.apache.axis.constants.Style.RPC);
+        oper.setUse(org.apache.axis.constants.Use.ENCODED);
         _operations[99] = oper;
 
     }
@@ -1875,6 +1888,19 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
     private static void _initOperationDesc11() {
         org.apache.axis.description.OperationDesc oper;
         org.apache.axis.description.ParameterDesc param;
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("doGetSiteJournalDealsInfo");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "session-id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "journal-start"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("urn:AllegroWebApi", "SiteJournalDealsInfoStruct"));
+        oper.setReturnClass(pl.net.yuri.magister.soap.SiteJournalDealsInfoStruct.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "site-journal-deals-info"));
+        oper.setStyle(org.apache.axis.constants.Style.RPC);
+        oper.setUse(org.apache.axis.constants.Use.ENCODED);
+        _operations[100] = oper;
+
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doChangeItem");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "session-handle"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -1896,7 +1922,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[100] = oper;
+        _operations[101] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doFinishItems");
@@ -1911,7 +1937,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[101] = oper;
+        _operations[102] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetShipmentData");
@@ -1926,7 +1952,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[102] = oper;
+        _operations[103] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetItemFields");
@@ -1939,7 +1965,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "item-fields"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[103] = oper;
+        _operations[104] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doFindProductByName");
@@ -1954,7 +1980,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "products-info"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[104] = oper;
+        _operations[105] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doGetProductItems");
@@ -1975,7 +2001,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[105] = oper;
+        _operations[106] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doFindProductByCode");
@@ -1988,7 +2014,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "product-info"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[106] = oper;
+        _operations[107] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("doRequestSurcharge");
@@ -2005,7 +2031,66 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         oper.setReturnQName(new javax.xml.namespace.QName("", "surcharge-result"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[107] = oper;
+        _operations[108] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("doGetPostBuyFormsDataForBuyers");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "session-id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "transactions-ids-array"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfTransactionsID"), long[].class, false, false);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfPostBuyFormForBuyersDataStruct"));
+        oper.setReturnClass(pl.net.yuri.magister.soap.PostBuyFormForBuyersDataStruct[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "post-buy-form-data-for-buyers"));
+        oper.setStyle(org.apache.axis.constants.Style.RPC);
+        oper.setUse(org.apache.axis.constants.Use.ENCODED);
+        _operations[109] = oper;
+
+    }
+
+    private static void _initOperationDesc12() {
+        org.apache.axis.description.OperationDesc oper;
+        org.apache.axis.description.ParameterDesc param;
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("doGetPostBuyFormsDataForSellers");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "session-id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "transactions-ids-array"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfTransactionsID"), long[].class, false, false);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfPostBuyFormDataStruct"));
+        oper.setReturnClass(pl.net.yuri.magister.soap.PostBuyFormDataStruct[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "post-buy-form-data"));
+        oper.setStyle(org.apache.axis.constants.Style.RPC);
+        oper.setUse(org.apache.axis.constants.Use.ENCODED);
+        _operations[110] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("doAddPackageInfoToPostBuyForm");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "session-id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "transaction-id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "package-info"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfPackageInfoStruct"), pl.net.yuri.magister.soap.PackageInfoStruct[].class, false, false);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("urn:AllegroWebApi", "PostBuyFormPackageInfoStruct"));
+        oper.setReturnClass(pl.net.yuri.magister.soap.PostBuyFormPackageInfoStruct.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "post-buy-form-package-info"));
+        oper.setStyle(org.apache.axis.constants.Style.RPC);
+        oper.setUse(org.apache.axis.constants.Use.ENCODED);
+        _operations[111] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("doAddToWatchList");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "session-id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "item-ids"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfItemsID"), long[].class, false, false);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("urn:AllegroWebApi", "WatchListInfoStruct"));
+        oper.setReturnClass(pl.net.yuri.magister.soap.WatchListInfoStruct.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "watch-list-info"));
+        oper.setStyle(org.apache.axis.constants.Style.RPC);
+        oper.setUse(org.apache.axis.constants.Use.ENCODED);
+        _operations[112] = oper;
 
     }
 
@@ -2024,7 +2109,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         } else {
             super.service = service;
         }
-        ((org.apache.axis.client.Service) super.service).setTypeMappingVersion("1.1");
+        ((org.apache.axis.client.Service) super.service).setTypeMappingVersion("1.2");
         java.lang.Class cls;
         javax.xml.namespace.QName qName;
         javax.xml.namespace.QName qName2;
@@ -2040,6 +2125,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
         addBindings0();
         addBindings1();
+        addBindings2();
     }
 
     private void addBindings0() {
@@ -2369,6 +2455,15 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
         cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfItemsAdded");
+        cachedSerQNames.add(qName);
+        cls = long[].class;
+        cachedSerClasses.add(cls);
+        qName = new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long");
+        qName2 = null;
+        cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+        cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
         qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfItemsID");
         cachedSerQNames.add(qName);
         cls = long[].class;
@@ -2378,11 +2473,29 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
         cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfItemsNotAddedStruct");
+        cachedSerQNames.add(qName);
+        cls = pl.net.yuri.magister.soap.ItemsNotAddedStruct[].class;
+        cachedSerClasses.add(cls);
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "ItemsNotAddedStruct");
+        qName2 = null;
+        cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+        cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
         qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfItemsPostBuyData");
         cachedSerQNames.add(qName);
         cls = pl.net.yuri.magister.soap.ItemPostBuyDataStruct[].class;
         cachedSerClasses.add(cls);
         qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "ItemPostBuyDataStruct");
+        qName2 = null;
+        cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+        cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfLocalIds");
+        cachedSerQNames.add(qName);
+        cls = int[].class;
+        cachedSerClasses.add(cls);
+        qName = new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int");
         qName2 = null;
         cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
         cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
@@ -2414,11 +2527,47 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
         cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfPackageIds");
+        cachedSerQNames.add(qName);
+        cls = java.lang.String[].class;
+        cachedSerClasses.add(cls);
+        qName = new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string");
+        qName2 = null;
+        cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+        cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfPackageInfoStruct");
+        cachedSerQNames.add(qName);
+        cls = pl.net.yuri.magister.soap.PackageInfoStruct[].class;
+        cachedSerClasses.add(cls);
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "PackageInfoStruct");
+        qName2 = null;
+        cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+        cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
         qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfPaymentDetailsStruct");
         cachedSerQNames.add(qName);
         cls = pl.net.yuri.magister.soap.PaymentDetailsStruct[].class;
         cachedSerClasses.add(cls);
         qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "PaymentDetailsStruct");
+        qName2 = null;
+        cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+        cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfPaymentItemsStruct");
+        cachedSerQNames.add(qName);
+        cls = pl.net.yuri.magister.soap.PaymentItemsStruct[].class;
+        cachedSerClasses.add(cls);
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "PaymentItemsStruct");
+        qName2 = null;
+        cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+        cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfPaymentSellersStruct");
+        cachedSerQNames.add(qName);
+        cls = pl.net.yuri.magister.soap.PaymentSellersStruct[].class;
+        cachedSerClasses.add(cls);
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "PaymentSellersStruct");
         qName2 = null;
         cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
         cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
@@ -2441,11 +2590,29 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
         cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfPostBuyFormForBuyersDataStruct");
+        cachedSerQNames.add(qName);
+        cls = pl.net.yuri.magister.soap.PostBuyFormForBuyersDataStruct[].class;
+        cachedSerClasses.add(cls);
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "PostBuyFormForBuyersDataStruct");
+        qName2 = null;
+        cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+        cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
         qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfPostBuyFormItemStruct");
         cachedSerQNames.add(qName);
         cls = pl.net.yuri.magister.soap.PostBuyFormItemStruct[].class;
         cachedSerClasses.add(cls);
         qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "PostBuyFormItemStruct");
+        qName2 = null;
+        cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+        cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfPostBuyFormSellersStruct");
+        cachedSerQNames.add(qName);
+        cls = pl.net.yuri.magister.soap.PostBuyFormSellersStruct[].class;
+        cachedSerClasses.add(cls);
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "PostBuyFormSellersStruct");
         qName2 = null;
         cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
         cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
@@ -2702,6 +2869,24 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
         cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfShipmentIds");
+        cachedSerQNames.add(qName);
+        cls = long[].class;
+        cachedSerClasses.add(cls);
+        qName = new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long");
+        qName2 = null;
+        cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+        cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfSiteJournalDealsStruct");
+        cachedSerQNames.add(qName);
+        cls = pl.net.yuri.magister.soap.SiteJournalDealsStruct[].class;
+        cachedSerClasses.add(cls);
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "SiteJournalDealsStruct");
+        qName2 = null;
+        cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+        cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
         qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfSitesFlagInfo");
         cachedSerQNames.add(qName);
         cls = pl.net.yuri.magister.soap.SiteFlagInfoType[].class;
@@ -2855,6 +3040,22 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
         cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
+    }
+
+    private void addBindings1() {
+        java.lang.Class cls;
+        javax.xml.namespace.QName qName;
+        javax.xml.namespace.QName qName2;
+        java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
+        java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
+        java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
+        java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
+        java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
+        java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
+        java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
+        java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
+        java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
+        java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
         qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "ArrayOfUserPayoutStruct");
         cachedSerQNames.add(qName);
         cls = pl.net.yuri.magister.soap.UserPayoutStruct[].class;
@@ -2942,22 +3143,6 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         cachedSerFactories.add(beansf);
         cachedDeserFactories.add(beandf);
 
-    }
-
-    private void addBindings1() {
-        java.lang.Class cls;
-        javax.xml.namespace.QName qName;
-        javax.xml.namespace.QName qName2;
-        java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
-        java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
-        java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
-        java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
-        java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
-        java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
-        java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
-        java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
-        java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
-        java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
         qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "CancelRefundFormResultStruct");
         cachedSerQNames.add(qName);
         cls = pl.net.yuri.magister.soap.CancelRefundFormResultStruct.class;
@@ -3191,6 +3376,13 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         cachedSerFactories.add(beansf);
         cachedDeserFactories.add(beandf);
 
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "ItemsNotAddedStruct");
+        cachedSerQNames.add(qName);
+        cls = pl.net.yuri.magister.soap.ItemsNotAddedStruct.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
         qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "MyAccountList2");
         cachedSerQNames.add(qName);
         cls = java.lang.String[].class;
@@ -3230,6 +3422,13 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         cachedSerFactories.add(beansf);
         cachedDeserFactories.add(beandf);
 
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "PackageInfoStruct");
+        cachedSerQNames.add(qName);
+        cls = pl.net.yuri.magister.soap.PackageInfoStruct.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
         qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "PaymentDetailsStruct");
         cachedSerQNames.add(qName);
         cls = pl.net.yuri.magister.soap.PaymentDetailsStruct.class;
@@ -3237,9 +3436,30 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         cachedSerFactories.add(beansf);
         cachedDeserFactories.add(beandf);
 
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "PaymentItemsStruct");
+        cachedSerQNames.add(qName);
+        cls = pl.net.yuri.magister.soap.PaymentItemsStruct.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "PaymentSellersStruct");
+        cachedSerQNames.add(qName);
+        cls = pl.net.yuri.magister.soap.PaymentSellersStruct.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
         qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "PharmacyDataStruct");
         cachedSerQNames.add(qName);
         cls = pl.net.yuri.magister.soap.PharmacyDataStruct.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "PharmacyRecipientDataStruct");
+        cachedSerQNames.add(qName);
+        cls = pl.net.yuri.magister.soap.PharmacyRecipientDataStruct.class;
         cachedSerClasses.add(cls);
         cachedSerFactories.add(beansf);
         cachedDeserFactories.add(beandf);
@@ -3265,9 +3485,30 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         cachedSerFactories.add(beansf);
         cachedDeserFactories.add(beandf);
 
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "PostBuyFormForBuyersDataStruct");
+        cachedSerQNames.add(qName);
+        cls = pl.net.yuri.magister.soap.PostBuyFormForBuyersDataStruct.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
         qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "PostBuyFormItemStruct");
         cachedSerQNames.add(qName);
         cls = pl.net.yuri.magister.soap.PostBuyFormItemStruct.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "PostBuyFormPackageInfoStruct");
+        cachedSerQNames.add(qName);
+        cls = pl.net.yuri.magister.soap.PostBuyFormPackageInfoStruct.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "PostBuyFormSellersStruct");
+        cachedSerQNames.add(qName);
+        cls = pl.net.yuri.magister.soap.PostBuyFormSellersStruct.class;
         cachedSerClasses.add(cls);
         cachedSerFactories.add(beansf);
         cachedDeserFactories.add(beandf);
@@ -3512,6 +3753,20 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
         cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "SiteJournalDealsInfoStruct");
+        cachedSerQNames.add(qName);
+        cls = pl.net.yuri.magister.soap.SiteJournalDealsInfoStruct.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "SiteJournalDealsStruct");
+        cachedSerQNames.add(qName);
+        cls = pl.net.yuri.magister.soap.SiteJournalDealsStruct.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
         qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "SiteJournalInfo");
         cachedSerQNames.add(qName);
         cls = pl.net.yuri.magister.soap.SiteJournalInfo.class;
@@ -3519,6 +3774,22 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         cachedSerFactories.add(beansf);
         cachedDeserFactories.add(beandf);
 
+    }
+
+    private void addBindings2() {
+        java.lang.Class cls;
+        javax.xml.namespace.QName qName;
+        javax.xml.namespace.QName qName2;
+        java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
+        java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
+        java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
+        java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
+        java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
+        java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
+        java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
+        java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
+        java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
+        java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
         qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "SpecialAuctionStruct");
         cachedSerQNames.add(qName);
         cls = pl.net.yuri.magister.soap.SpecialAuctionStruct.class;
@@ -3645,6 +3916,13 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         cachedSerFactories.add(beansf);
         cachedDeserFactories.add(beandf);
 
+        qName = new javax.xml.namespace.QName("urn:AllegroWebApi", "WatchListInfoStruct");
+        cachedSerQNames.add(qName);
+        cls = pl.net.yuri.magister.soap.WatchListInfoStruct.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
     }
 
     protected org.apache.axis.client.Call createCall() throws java.rmi.RemoteException {
@@ -3719,7 +3997,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#catsdata");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetCatsData"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetCatsData"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -3762,7 +4040,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#login");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doLogin"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doLogin"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -3805,7 +4083,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#loginenc");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doLoginEnc"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doLoginEnc"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -3848,7 +4126,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#newauction");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doNewAuction"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doNewAuction"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -3877,7 +4155,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         }
     }
 
-    public void doNewAuctionExt(java.lang.String sessionHandle, pl.net.yuri.magister.soap.FieldsValue[] fields, int _private, int localId, javax.xml.rpc.holders.LongHolder itemId, javax.xml.rpc.holders.StringHolder itemInfo) throws java.rmi.RemoteException {
+    public void doNewAuctionExt(java.lang.String sessionHandle, pl.net.yuri.magister.soap.FieldsValue[] fields, int _private, int localId, javax.xml.rpc.holders.LongHolder itemId, javax.xml.rpc.holders.StringHolder itemInfo, javax.xml.rpc.holders.IntHolder itemIsAllegroStandard) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -3886,7 +4164,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#newauctionext");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doNewAuctionExt"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doNewAuctionExt"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -3909,13 +4187,18 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
                 } catch (java.lang.Exception _exception) {
                     itemInfo.value = (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_output.get(new javax.xml.namespace.QName("", "item-info")), java.lang.String.class);
                 }
+                try {
+                    itemIsAllegroStandard.value = ((java.lang.Integer) _output.get(new javax.xml.namespace.QName("", "item-is-allegro-standard"))).intValue();
+                } catch (java.lang.Exception _exception) {
+                    itemIsAllegroStandard.value = ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_output.get(new javax.xml.namespace.QName("", "item-is-allegro-standard")), int.class)).intValue();
+                }
             }
         } catch (org.apache.axis.AxisFault axisFaultException) {
             throw axisFaultException;
         }
     }
 
-    public void doSellSomeAgain(java.lang.String sessionHandle, long[] sellItemsArray, long sellStartingTime, int sellAuctionDuration, int sellOptions, pl.net.yuri.magister.soap.holders.ArrayOfStructSellAgainHolder itemsSellAgain, pl.net.yuri.magister.soap.holders.ArrayOfStructSellFailedHolder itemsSellFailed, pl.net.yuri.magister.soap.holders.ArrayOfItemsIDHolder itemsSellNotFound) throws java.rmi.RemoteException {
+    public void doSellSomeAgain(java.lang.String sessionHandle, long[] sellItemsArray, long sellStartingTime, int sellAuctionDuration, int sellOptions, int[] localIds, pl.net.yuri.magister.soap.holders.ArrayOfStructSellAgainHolder itemsSellAgain, pl.net.yuri.magister.soap.holders.ArrayOfStructSellFailedHolder itemsSellFailed, pl.net.yuri.magister.soap.holders.ArrayOfItemsIDHolder itemsSellNotFound) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -3924,12 +4207,12 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#sellsomeagain");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doSellSomeAgain"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doSellSomeAgain"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
         try {
-            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{sessionHandle, sellItemsArray, new java.lang.Long(sellStartingTime), new java.lang.Integer(sellAuctionDuration), new java.lang.Integer(sellOptions)});
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{sessionHandle, sellItemsArray, new java.lang.Long(sellStartingTime), new java.lang.Integer(sellAuctionDuration), new java.lang.Integer(sellOptions), localIds});
 
             if (_resp instanceof java.rmi.RemoteException) {
                 throw (java.rmi.RemoteException) _resp;
@@ -3967,7 +4250,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#checkauction");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doCheckNewAuction"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doCheckNewAuction"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -3996,7 +4279,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         }
     }
 
-    public void doCheckNewAuctionExt(java.lang.String sessionHandle, pl.net.yuri.magister.soap.FieldsValue[] fields, javax.xml.rpc.holders.StringHolder itemPrice, javax.xml.rpc.holders.StringHolder itemPriceDesc) throws java.rmi.RemoteException {
+    public void doCheckNewAuctionExt(java.lang.String sessionHandle, pl.net.yuri.magister.soap.FieldsValue[] fields, javax.xml.rpc.holders.StringHolder itemPrice, javax.xml.rpc.holders.StringHolder itemPriceDesc, javax.xml.rpc.holders.IntHolder itemIsAllegroStandard) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -4005,7 +4288,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#checkauctionext");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doCheckNewAuctionExt"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doCheckNewAuctionExt"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -4027,6 +4310,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
                     itemPriceDesc.value = (java.lang.String) _output.get(new javax.xml.namespace.QName("", "item-price-desc"));
                 } catch (java.lang.Exception _exception) {
                     itemPriceDesc.value = (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_output.get(new javax.xml.namespace.QName("", "item-price-desc")), java.lang.String.class);
+                }
+                try {
+                    itemIsAllegroStandard.value = ((java.lang.Integer) _output.get(new javax.xml.namespace.QName("", "item-is-allegro-standard"))).intValue();
+                } catch (java.lang.Exception _exception) {
+                    itemIsAllegroStandard.value = ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_output.get(new javax.xml.namespace.QName("", "item-is-allegro-standard")), int.class)).intValue();
                 }
             }
         } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -4043,7 +4331,7 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#adddesc");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doAddDescToItems"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doAddDescToItems"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -4077,47 +4365,16 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         }
     }
 
-    public long doCheckItemIdByFutureItemId(java.lang.String webapiKey, int countryId, long futureItemId) throws java.rmi.RemoteException {
+    public void doGetCatsDataLimit(int countryId, long localVersion, java.lang.String webapiKey, int offset, int packageElement, pl.net.yuri.magister.soap.holders.ArrayOfCatsHolder catsList, javax.xml.rpc.holders.LongHolder verKey, javax.xml.rpc.holders.StringHolder verStr) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
         _call.setOperation(_operations[9]);
         _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("#checkitemidbyfuture");
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doCheckItemIdByFutureItemId"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
-        try {
-            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{webapiKey, new java.lang.Integer(countryId), new java.lang.Long(futureItemId)});
-
-            if (_resp instanceof java.rmi.RemoteException) {
-                throw (java.rmi.RemoteException) _resp;
-            } else {
-                extractAttachments(_call);
-                try {
-                    return ((java.lang.Long) _resp).longValue();
-                } catch (java.lang.Exception _exception) {
-                    return ((java.lang.Long) org.apache.axis.utils.JavaUtils.convert(_resp, long.class)).longValue();
-                }
-            }
-        } catch (org.apache.axis.AxisFault axisFaultException) {
-            throw axisFaultException;
-        }
-    }
-
-    public void doGetCatsDataLimit(int countryId, long localVersion, java.lang.String webapiKey, int offset, int packageElement, pl.net.yuri.magister.soap.holders.ArrayOfCatsHolder catsList, javax.xml.rpc.holders.LongHolder verKey, javax.xml.rpc.holders.StringHolder verStr) throws java.rmi.RemoteException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[10]);
-        _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#catsdatalimit");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetCatsDataLimit"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetCatsDataLimit"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -4156,11 +4413,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[11]);
+        _call.setOperation(_operations[10]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getitemsinfo");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetItemsInfo"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetItemsInfo"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -4199,11 +4456,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[12]);
+        _call.setOperation(_operations[11]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#paymentdata");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetPaymentData"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetPaymentData"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -4230,11 +4487,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[13]);
+        _call.setOperation(_operations[12]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#sellformfields");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetSellFormFields"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetSellFormFields"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -4273,11 +4530,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[14]);
+        _call.setOperation(_operations[13]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#sellformfieldsext");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetSellFormFieldsExt"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetSellFormFieldsExt"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -4316,11 +4573,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[15]);
+        _call.setOperation(_operations[14]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#sitesflaginfo");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetSitesFlagInfo"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetSitesFlagInfo"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -4359,11 +4616,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[16]);
+        _call.setOperation(_operations[15]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#sitesinfo");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetSitesInfo"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetSitesInfo"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -4402,11 +4659,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[17]);
+        _call.setOperation(_operations[16]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#dogetsystemtime");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetSystemTime"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetSystemTime"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -4433,11 +4690,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[18]);
+        _call.setOperation(_operations[17]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getuserid");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetUserID"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetUserID"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -4464,11 +4721,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[19]);
+        _call.setOperation(_operations[18]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getuseritems");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetUserItems"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetUserItems"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -4502,11 +4759,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[20]);
+        _call.setOperation(_operations[19]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getuserlogin");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetUserLogin"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetUserLogin"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -4533,11 +4790,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[21]);
+        _call.setOperation(_operations[20]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#queryallstatus");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doQueryAllSysStatus"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doQueryAllSysStatus"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -4564,11 +4821,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[22]);
+        _call.setOperation(_operations[21]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#sellformfieldsextlimit");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetSellFormFieldsExtLimit"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetSellFormFieldsExtLimit"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -4612,11 +4869,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[23]);
+        _call.setOperation(_operations[22]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#sellformfieldslimit");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetSellFormFieldsLimit"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetSellFormFieldsLimit"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -4660,11 +4917,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[24]);
+        _call.setOperation(_operations[23]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#querystatus");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doQuerySysStatus"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doQuerySysStatus"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -4698,11 +4955,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[25]);
+        _call.setOperation(_operations[24]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#showcat");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doShowCat"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doShowCat"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -4756,11 +5013,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[26]);
+        _call.setOperation(_operations[25]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#showiteminfo");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doShowItemInfo"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doShowItemInfo"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -4819,11 +5076,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[27]);
+        _call.setOperation(_operations[26]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#showuser");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doShowUser"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doShowUser"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -4962,16 +5219,16 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         }
     }
 
-    public void doVerifyItem(java.lang.String sessionHandle, int localId, javax.xml.rpc.holders.LongHolder itemId, javax.xml.rpc.holders.IntHolder itemListed) throws java.rmi.RemoteException {
+    public void doVerifyItem(java.lang.String sessionHandle, int localId, javax.xml.rpc.holders.LongHolder itemId, javax.xml.rpc.holders.IntHolder itemListed, javax.xml.rpc.holders.LongHolder itemStartingTime) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[28]);
+        _call.setOperation(_operations[27]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#verifyitem");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doVerifyItem"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doVerifyItem"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -4994,6 +5251,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
                 } catch (java.lang.Exception _exception) {
                     itemListed.value = ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_output.get(new javax.xml.namespace.QName("", "item-listed")), int.class)).intValue();
                 }
+                try {
+                    itemStartingTime.value = ((java.lang.Long) _output.get(new javax.xml.namespace.QName("", "item-starting-time"))).longValue();
+                } catch (java.lang.Exception _exception) {
+                    itemStartingTime.value = ((java.lang.Long) org.apache.axis.utils.JavaUtils.convert(_output.get(new javax.xml.namespace.QName("", "item-starting-time")), long.class)).longValue();
+                }
             }
         } catch (org.apache.axis.AxisFault axisFaultException) {
             throw axisFaultException;
@@ -5005,11 +5267,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[29]);
+        _call.setOperation(_operations[28]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#addwatch");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doAddWatchList"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doAddWatchList"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5048,11 +5310,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[30]);
+        _call.setOperation(_operations[29]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#feedback");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doFeedback"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doFeedback"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5079,11 +5341,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[31]);
+        _call.setOperation(_operations[30]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getbiditem");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetBidItem2"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetBidItem2"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5110,11 +5372,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[32]);
+        _call.setOperation(_operations[31]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getfeedback");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetFeedback"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetFeedback"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5148,11 +5410,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[33]);
+        _call.setOperation(_operations[32]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getsitejournal");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetSiteJournal"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetSiteJournal"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5179,11 +5441,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[34]);
+        _call.setOperation(_operations[33]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getsitejournalinfo");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetSiteJournalInfo"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetSiteJournalInfo"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5210,11 +5472,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[35]);
+        _call.setOperation(_operations[34]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#myaccount");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doMyAccount2"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doMyAccount2"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5241,11 +5503,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[36]);
+        _call.setOperation(_operations[35]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#myaccountitemscount");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doMyAccountItemsCount"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doMyAccountItemsCount"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5272,11 +5534,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[37]);
+        _call.setOperation(_operations[36]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#mybilling");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doMyBilling"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doMyBilling"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5303,11 +5565,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[38]);
+        _call.setOperation(_operations[37]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#mycontacts");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doMyContact"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doMyContact"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5334,11 +5596,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[39]);
+        _call.setOperation(_operations[38]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#myfeedback");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doMyFeedback2"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doMyFeedback2"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5365,11 +5627,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[40]);
+        _call.setOperation(_operations[39]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#search");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doSearch"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doSearch"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5413,11 +5675,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[41]);
+        _call.setOperation(_operations[40]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getadminuserlicdate");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetAdminUserLicenceDate"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetAdminUserLicenceDate"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5444,11 +5706,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[42]);
+        _call.setOperation(_operations[41]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getuserlicdate");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetUserLicenceDate"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetUserLicenceDate"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5475,11 +5737,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[43]);
+        _call.setOperation(_operations[42]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#billingitem");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doMyBillingItem"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doMyBillingItem"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5513,11 +5775,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[44]);
+        _call.setOperation(_operations[43]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#setuserlicdate");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doSetUserLicenceDate"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doSetUserLicenceDate"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5539,21 +5801,21 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         }
     }
 
-    public java.lang.String doBidItem(java.lang.String sessionHandle, long bidItId, float bidUserPrice, long bidQuantity, long bidBuyNow) throws java.rmi.RemoteException {
+    public java.lang.String doBidItem(java.lang.String sessionHandle, long bidItId, float bidUserPrice, long bidQuantity, long bidBuyNow, pl.net.yuri.magister.soap.PharmacyRecipientDataStruct pharmacyRecipientData) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[45]);
+        _call.setOperation(_operations[44]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#biditem");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doBidItem"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doBidItem"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
         try {
-            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{sessionHandle, new java.lang.Long(bidItId), new java.lang.Float(bidUserPrice), new java.lang.Long(bidQuantity), new java.lang.Long(bidBuyNow)});
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{sessionHandle, new java.lang.Long(bidItId), new java.lang.Float(bidUserPrice), new java.lang.Long(bidQuantity), new java.lang.Long(bidBuyNow), pharmacyRecipientData});
 
             if (_resp instanceof java.rmi.RemoteException) {
                 throw (java.rmi.RemoteException) _resp;
@@ -5575,11 +5837,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[46]);
+        _call.setOperation(_operations[45]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#cancelbiditem");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doCancelBidItem"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doCancelBidItem"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5618,11 +5880,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[47]);
+        _call.setOperation(_operations[46]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#changeprice");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doChangePriceItem"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doChangePriceItem"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5656,11 +5918,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[48]);
+        _call.setOperation(_operations[47]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#finishauction");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doFinishItem"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doFinishItem"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5687,11 +5949,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[49]);
+        _call.setOperation(_operations[48]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#requestcancelbid");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doRequestCancelBid"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doRequestCancelBid"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5718,11 +5980,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[50]);
+        _call.setOperation(_operations[49]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#catsdatacount");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetCatsDataCount"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetCatsDataCount"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5761,11 +6023,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[51]);
+        _call.setOperation(_operations[50]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#myfeedbacklimit");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doMyFeedback2Limit"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doMyFeedback2Limit"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5792,11 +6054,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[52]);
+        _call.setOperation(_operations[51]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getcountry");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetCountries"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetCountries"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5823,11 +6085,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[53]);
+        _call.setOperation(_operations[52]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#gettemplates");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetServiceTemplates"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetServiceTemplates"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5854,11 +6116,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[54]);
+        _call.setOperation(_operations[53]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#sellformattribs");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetSellFormAttribs"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetSellFormAttribs"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5897,11 +6159,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[55]);
+        _call.setOperation(_operations[54]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#feedbackmany");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doFeedbackMany"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doFeedbackMany"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5928,11 +6190,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[56]);
+        _call.setOperation(_operations[55]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#showiteminfoext");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doShowItemInfoExt"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doShowItemInfoExt"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -5991,11 +6253,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[57]);
+        _call.setOperation(_operations[56]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#waitfeedcount");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetWaitingFeedbacksCount"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetWaitingFeedbacksCount"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6022,11 +6284,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[58]);
+        _call.setOperation(_operations[57]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#waitfeed");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetWaitingFeedbacks"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetWaitingFeedbacks"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6053,11 +6315,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[59]);
+        _call.setOperation(_operations[58]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getblacklist");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetBlackListUsers"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetBlackListUsers"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6084,11 +6346,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[60]);
+        _call.setOperation(_operations[59]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#removefromblacklist");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doRemoveFromBlackList"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doRemoveFromBlackList"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6115,11 +6377,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[61]);
+        _call.setOperation(_operations[60]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getannouncementcats");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetServiceInfoCategories"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetServiceInfoCategories"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6146,11 +6408,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[62]);
+        _call.setOperation(_operations[61]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getannouncementitems");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetServiceInfo"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetServiceInfo"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6177,11 +6439,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[63]);
+        _call.setOperation(_operations[62]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getstatesinfo");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetStatesInfo"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetStatesInfo"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6208,11 +6470,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[64]);
+        _call.setOperation(_operations[63]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#shopcatsdata");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetShopCatsData"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetShopCatsData"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6239,11 +6501,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[65]);
+        _call.setOperation(_operations[64]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#checkexternalkey");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doCheckExternalKey"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doCheckExternalKey"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6265,21 +6527,21 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         }
     }
 
-    public void doSellSomeAgainInShop(java.lang.String sessionHandle, long[] sellItemsArray, long sellStartingTime, int sellShopDuration, int sellShopOptions, int sellProlongOptions, long sellShopCategory, pl.net.yuri.magister.soap.holders.ArrayOfStructSellAgainHolder itemsSellAgain, pl.net.yuri.magister.soap.holders.ArrayOfStructSellFailedHolder itemsSellFailed, pl.net.yuri.magister.soap.holders.ArrayOfItemsIDHolder itemsSellNotFound) throws java.rmi.RemoteException {
+    public void doSellSomeAgainInShop(java.lang.String sessionHandle, long[] sellItemsArray, long sellStartingTime, int sellShopDuration, int sellShopOptions, int sellProlongOptions, long sellShopCategory, int[] localIds, pl.net.yuri.magister.soap.holders.ArrayOfStructSellAgainHolder itemsSellAgain, pl.net.yuri.magister.soap.holders.ArrayOfStructSellFailedHolder itemsSellFailed, pl.net.yuri.magister.soap.holders.ArrayOfItemsIDHolder itemsSellNotFound) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[66]);
+        _call.setOperation(_operations[65]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#sellshopagain");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doSellSomeAgainInShop"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doSellSomeAgainInShop"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
         try {
-            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{sessionHandle, sellItemsArray, new java.lang.Long(sellStartingTime), new java.lang.Integer(sellShopDuration), new java.lang.Integer(sellShopOptions), new java.lang.Integer(sellProlongOptions), new java.lang.Long(sellShopCategory)});
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{sessionHandle, sellItemsArray, new java.lang.Long(sellStartingTime), new java.lang.Integer(sellShopDuration), new java.lang.Integer(sellShopOptions), new java.lang.Integer(sellProlongOptions), new java.lang.Long(sellShopCategory), localIds});
 
             if (_resp instanceof java.rmi.RemoteException) {
                 throw (java.rmi.RemoteException) _resp;
@@ -6313,11 +6575,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[67]);
+        _call.setOperation(_operations[66]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getsupersellerstatus");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetSuperSellerStatus"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetSuperSellerStatus"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6344,11 +6606,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[68]);
+        _call.setOperation(_operations[67]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getmydata");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetMyData"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetMyData"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6402,11 +6664,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[69]);
+        _call.setOperation(_operations[68]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#internalistorechange");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doInternalIStoreChange"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doInternalIStoreChange"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6433,11 +6695,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[70]);
+        _call.setOperation(_operations[69]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#dogetfavouritesellers");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetFavouriteSellers"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetFavouriteSellers"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6464,11 +6726,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[71]);
+        _call.setOperation(_operations[70]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#dogetfavouritecategories");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetFavouriteCategories"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetFavouriteCategories"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6495,11 +6757,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[72]);
+        _call.setOperation(_operations[71]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#dogetitemsimages");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetItemsImages"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetItemsImages"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6526,11 +6788,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[73]);
+        _call.setOperation(_operations[72]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#dogetspecialitems");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetSpecialItems"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetSpecialItems"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6557,11 +6819,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[74]);
+        _call.setOperation(_operations[73]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#doAddToBlackList");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doAddToBlackList"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doAddToBlackList"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6588,11 +6850,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[75]);
+        _call.setOperation(_operations[74]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getpostbuydata");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetPostBuyData"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetPostBuyData"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6619,11 +6881,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[76]);
+        _call.setOperation(_operations[75]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#doCancelRefundForms");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doCancelRefundForms"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doCancelRefundForms"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6650,11 +6912,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[77]);
+        _call.setOperation(_operations[76]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getsessionhandleforwidget");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetSessionHandleForWidget"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetSessionHandleForWidget"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6688,11 +6950,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[78]);
+        _call.setOperation(_operations[77]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#doCancelRefundWarnings");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doCancelRefundWarnings"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doCancelRefundWarnings"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6719,11 +6981,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[79]);
+        _call.setOperation(_operations[78]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#doInternalSendMessage");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doInternalSendMessage"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doInternalSendMessage"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6750,11 +7012,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[80]);
+        _call.setOperation(_operations[79]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#doGetRefundTransactions");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetRefundTransactions"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetRefundTransactions"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6788,11 +7050,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[81]);
+        _call.setOperation(_operations[80]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#doSendReminderMessages");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doSendReminderMessages"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doSendReminderMessages"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6819,11 +7081,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[82]);
+        _call.setOperation(_operations[81]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#doRemoveFromWatchList");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doRemoveFromWatchList"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doRemoveFromWatchList"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6850,11 +7112,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[83]);
+        _call.setOperation(_operations[82]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#doSendRefundForms");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doSendRefundForms"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doSendRefundForms"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6881,11 +7143,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[84]);
+        _call.setOperation(_operations[83]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#doGetRefundFormsStatuses");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetRefundFormsStatuses"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetRefundFormsStatuses"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6912,11 +7174,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[85]);
+        _call.setOperation(_operations[84]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#doGetRefundReasons");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetRefundReasons"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetRefundReasons"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6943,11 +7205,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[86]);
+        _call.setOperation(_operations[85]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getmyinpayments");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetMyIncomingPayments"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetMyIncomingPayments"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6969,21 +7231,21 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         }
     }
 
-    public pl.net.yuri.magister.soap.UserPaymentStruct[] doGetMyPayments(java.lang.String sessionHandle, int sellerId, long itemId, long transCreateDateFrom, long transCreateDateTo, int transPageLimit, int transOffset) throws java.rmi.RemoteException {
+    public pl.net.yuri.magister.soap.UserPaymentStruct[] doGetMyPayments(java.lang.String sessionId, int sellerId, long itemId, long paymentTimeFrom, long paymentTimeTo, int pageSize, int pageNumber) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[87]);
+        _call.setOperation(_operations[86]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getmypayments");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetMyPayments"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetMyPayments"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
         try {
-            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{sessionHandle, new java.lang.Integer(sellerId), new java.lang.Long(itemId), new java.lang.Long(transCreateDateFrom), new java.lang.Long(transCreateDateTo), new java.lang.Integer(transPageLimit), new java.lang.Integer(transOffset)});
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{sessionId, new java.lang.Integer(sellerId), new java.lang.Long(itemId), new java.lang.Long(paymentTimeFrom), new java.lang.Long(paymentTimeTo), new java.lang.Integer(pageSize), new java.lang.Integer(pageNumber)});
 
             if (_resp instanceof java.rmi.RemoteException) {
                 throw (java.rmi.RemoteException) _resp;
@@ -7005,11 +7267,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[88]);
+        _call.setOperation(_operations[87]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getmypayouts");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetMyPayouts"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetMyPayouts"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -7036,11 +7298,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[89]);
+        _call.setOperation(_operations[88]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#doChangeQuantityItem");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doChangeQuantityItem"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doChangeQuantityItem"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -7084,11 +7346,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[90]);
+        _call.setOperation(_operations[89]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#showuserpage");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doShowUserPage"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doShowUserPage"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -7127,11 +7389,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[91]);
+        _call.setOperation(_operations[90]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#sendemailtouser");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doSendEmailToUser"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doSendEmailToUser"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -7160,21 +7422,21 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         }
     }
 
-    public long[] doGetTransactionsIDs(java.lang.String sessionHandle, long[] itemsIdArray, java.lang.String userRole) throws java.rmi.RemoteException {
+    public long[] doGetTransactionsIDs(java.lang.String sessionHandle, long[] itemsIdArray, java.lang.String userRole, long[] shipmentIdArray) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[92]);
+        _call.setOperation(_operations[91]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#gettransids");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetTransactionsIDs"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetTransactionsIDs"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
         try {
-            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{sessionHandle, itemsIdArray, userRole});
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{sessionHandle, itemsIdArray, userRole, shipmentIdArray});
 
             if (_resp instanceof java.rmi.RemoteException) {
                 throw (java.rmi.RemoteException) _resp;
@@ -7196,11 +7458,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[93]);
+        _call.setOperation(_operations[92]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getpostbuyforms");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetPostBuyFormsData"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetPostBuyFormsData"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -7227,11 +7489,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[94]);
+        _call.setOperation(_operations[93]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getmyinpaymentsrefunds");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetMyIncomingPaymentsRefunds"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetMyIncomingPaymentsRefunds"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -7258,11 +7520,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[95]);
+        _call.setOperation(_operations[94]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getmypaymentsrafunds");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetMyPaymentsRefunds"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetMyPaymentsRefunds"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -7289,11 +7551,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[96]);
+        _call.setOperation(_operations[95]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getmysellrating");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetMySellRating"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetMySellRating"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -7337,11 +7599,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[97]);
+        _call.setOperation(_operations[96]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getsellratingreasons");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetSellRatingReasons"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetSellRatingReasons"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -7368,11 +7630,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[98]);
+        _call.setOperation(_operations[97]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getdeals");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetDeals"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetDeals"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -7399,11 +7661,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[99]);
+        _call.setOperation(_operations[98]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#makediscount");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doMakeDiscount"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doMakeDiscount"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -7425,16 +7687,78 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
         }
     }
 
-    public void doChangeItem(java.lang.String sessionHandle, javax.xml.rpc.holders.LongHolder itemId, pl.net.yuri.magister.soap.FieldsValue[] itemFields, pl.net.yuri.magister.soap.ItemImageOptionsStruct[] itemImagesOptions, javax.xml.rpc.holders.FloatHolder itemCountrySurchargeValue, javax.xml.rpc.holders.StringHolder itemCountrySurchargeCurrency, javax.xml.rpc.holders.FloatHolder sellerCountrySurchargeValue, javax.xml.rpc.holders.StringHolder sellerCountrySurchargeCurrency) throws java.rmi.RemoteException {
+    public pl.net.yuri.magister.soap.SiteJournalDealsStruct[] doGetSiteJournalDeals(java.lang.String sessionId, long journalStart) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[99]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("#dogetsitejournaldeals");
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetSiteJournalDeals"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{sessionId, new java.lang.Long(journalStart)});
+
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (pl.net.yuri.magister.soap.SiteJournalDealsStruct[]) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (pl.net.yuri.magister.soap.SiteJournalDealsStruct[]) org.apache.axis.utils.JavaUtils.convert(_resp, pl.net.yuri.magister.soap.SiteJournalDealsStruct[].class);
+                }
+            }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
+        }
+    }
+
+    public pl.net.yuri.magister.soap.SiteJournalDealsInfoStruct doGetSiteJournalDealsInfo(java.lang.String sessionId, long journalStart) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
         _call.setOperation(_operations[100]);
         _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("#dogetsitejournaldealsinfo");
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetSiteJournalDealsInfo"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{sessionId, new java.lang.Long(journalStart)});
+
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (pl.net.yuri.magister.soap.SiteJournalDealsInfoStruct) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (pl.net.yuri.magister.soap.SiteJournalDealsInfoStruct) org.apache.axis.utils.JavaUtils.convert(_resp, pl.net.yuri.magister.soap.SiteJournalDealsInfoStruct.class);
+                }
+            }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
+        }
+    }
+
+    public void doChangeItem(java.lang.String sessionHandle, javax.xml.rpc.holders.LongHolder itemId, pl.net.yuri.magister.soap.FieldsValue[] itemFields, pl.net.yuri.magister.soap.ItemImageOptionsStruct[] itemImagesOptions, javax.xml.rpc.holders.FloatHolder itemCountrySurchargeValue, javax.xml.rpc.holders.StringHolder itemCountrySurchargeCurrency, javax.xml.rpc.holders.FloatHolder sellerCountrySurchargeValue, javax.xml.rpc.holders.StringHolder sellerCountrySurchargeCurrency) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[101]);
+        _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#changeitem");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doChangeItem"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doChangeItem"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -7483,11 +7807,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[101]);
+        _call.setOperation(_operations[102]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#finishitems");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doFinishItems"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doFinishItems"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -7521,11 +7845,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[102]);
+        _call.setOperation(_operations[103]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getshipmentdata");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetShipmentData"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetShipmentData"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -7559,11 +7883,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[103]);
+        _call.setOperation(_operations[104]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getitemfields");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetItemFields"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetItemFields"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -7590,11 +7914,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[104]);
+        _call.setOperation(_operations[105]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#findproductbyname");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doFindProductByName"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doFindProductByName"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -7621,11 +7945,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[105]);
+        _call.setOperation(_operations[106]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#getproductitems");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doGetProductItems"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetProductItems"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -7659,11 +7983,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[106]);
+        _call.setOperation(_operations[107]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#findproductbycode");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doFindProductByCode"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doFindProductByCode"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -7690,11 +8014,11 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[107]);
+        _call.setOperation(_operations[108]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("#requestsurcharge");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("urn:AllegroWebApi", "doRequestSurcharge"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doRequestSurcharge"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -7709,6 +8033,130 @@ public class AllegroWebApiBindingStub extends org.apache.axis.client.Stub implem
                     return ((java.lang.Integer) _resp).intValue();
                 } catch (java.lang.Exception _exception) {
                     return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+                }
+            }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
+        }
+    }
+
+    public pl.net.yuri.magister.soap.PostBuyFormForBuyersDataStruct[] doGetPostBuyFormsDataForBuyers(java.lang.String sessionId, long[] transactionsIdsArray) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[109]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("#getpostbuyformsdataforbuyers");
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetPostBuyFormsDataForBuyers"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{sessionId, transactionsIdsArray});
+
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (pl.net.yuri.magister.soap.PostBuyFormForBuyersDataStruct[]) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (pl.net.yuri.magister.soap.PostBuyFormForBuyersDataStruct[]) org.apache.axis.utils.JavaUtils.convert(_resp, pl.net.yuri.magister.soap.PostBuyFormForBuyersDataStruct[].class);
+                }
+            }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
+        }
+    }
+
+    public pl.net.yuri.magister.soap.PostBuyFormDataStruct[] doGetPostBuyFormsDataForSellers(java.lang.String sessionId, long[] transactionsIdsArray) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[110]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("#getpostbuyformsdataforsellers");
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doGetPostBuyFormsDataForSellers"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{sessionId, transactionsIdsArray});
+
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (pl.net.yuri.magister.soap.PostBuyFormDataStruct[]) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (pl.net.yuri.magister.soap.PostBuyFormDataStruct[]) org.apache.axis.utils.JavaUtils.convert(_resp, pl.net.yuri.magister.soap.PostBuyFormDataStruct[].class);
+                }
+            }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
+        }
+    }
+
+    public pl.net.yuri.magister.soap.PostBuyFormPackageInfoStruct doAddPackageInfoToPostBuyForm(java.lang.String sessionId, long transactionId, pl.net.yuri.magister.soap.PackageInfoStruct[] packageInfo) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[111]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("#doaddpackageinfotopostbuyform");
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doAddPackageInfoToPostBuyForm"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{sessionId, new java.lang.Long(transactionId), packageInfo});
+
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (pl.net.yuri.magister.soap.PostBuyFormPackageInfoStruct) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (pl.net.yuri.magister.soap.PostBuyFormPackageInfoStruct) org.apache.axis.utils.JavaUtils.convert(_resp, pl.net.yuri.magister.soap.PostBuyFormPackageInfoStruct.class);
+                }
+            }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
+        }
+    }
+
+    public pl.net.yuri.magister.soap.WatchListInfoStruct doAddToWatchList(java.lang.String sessionId, long[] itemIds) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[112]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("#addtowatchlist");
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://webapi.allegro.pl/wsdl/", "doAddToWatchList"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{sessionId, itemIds});
+
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (pl.net.yuri.magister.soap.WatchListInfoStruct) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (pl.net.yuri.magister.soap.WatchListInfoStruct) org.apache.axis.utils.JavaUtils.convert(_resp, pl.net.yuri.magister.soap.WatchListInfoStruct.class);
                 }
             }
         } catch (org.apache.axis.AxisFault axisFaultException) {

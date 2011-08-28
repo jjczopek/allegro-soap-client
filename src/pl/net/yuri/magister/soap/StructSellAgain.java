@@ -12,14 +12,18 @@ public class StructSellAgain implements java.io.Serializable {
 
     private java.lang.String sellItemInfo;
 
+    private int sellItemLocalId;
+
     public StructSellAgain() {
     }
 
     public StructSellAgain(
             long sellItemId,
-            java.lang.String sellItemInfo) {
+            java.lang.String sellItemInfo,
+            int sellItemLocalId) {
         this.sellItemId = sellItemId;
         this.sellItemInfo = sellItemInfo;
+        this.sellItemLocalId = sellItemLocalId;
     }
 
 
@@ -62,6 +66,26 @@ public class StructSellAgain implements java.io.Serializable {
         this.sellItemInfo = sellItemInfo;
     }
 
+
+    /**
+     * Gets the sellItemLocalId value for this StructSellAgain.
+     *
+     * @return sellItemLocalId
+     */
+    public int getSellItemLocalId() {
+        return sellItemLocalId;
+    }
+
+
+    /**
+     * Sets the sellItemLocalId value for this StructSellAgain.
+     *
+     * @param sellItemLocalId
+     */
+    public void setSellItemLocalId(int sellItemLocalId) {
+        this.sellItemLocalId = sellItemLocalId;
+    }
+
     private java.lang.Object __equalsCalc = null;
 
     public synchronized boolean equals(java.lang.Object obj) {
@@ -78,7 +102,8 @@ public class StructSellAgain implements java.io.Serializable {
                 this.sellItemId == other.getSellItemId() &&
                 ((this.sellItemInfo == null && other.getSellItemInfo() == null) ||
                         (this.sellItemInfo != null &&
-                                this.sellItemInfo.equals(other.getSellItemInfo())));
+                                this.sellItemInfo.equals(other.getSellItemInfo()))) &&
+                this.sellItemLocalId == other.getSellItemLocalId();
         __equalsCalc = null;
         return _equals;
     }
@@ -95,6 +120,7 @@ public class StructSellAgain implements java.io.Serializable {
         if (getSellItemInfo() != null) {
             _hashCode += getSellItemInfo().hashCode();
         }
+        _hashCode += getSellItemLocalId();
         __hashCodeCalc = false;
         return _hashCode;
     }
@@ -115,6 +141,12 @@ public class StructSellAgain implements java.io.Serializable {
         elemField.setFieldName("sellItemInfo");
         elemField.setXmlName(new javax.xml.namespace.QName("", "sell-item-info"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("sellItemLocalId");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "sell-item-local-id"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }
